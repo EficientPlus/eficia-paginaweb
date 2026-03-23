@@ -83,12 +83,12 @@
     color: #080A0F;
     font-weight: 700;
     transition: all 0.3s ease;
-    box-shadow: 0 0 28px rgba(101,210,213,0.3);
+    box-shadow: 0 0 32px rgba(101,210,213,0.45), 0 0 8px rgba(101,210,213,0.3);
   }
   .btn-glow:hover {
     background: #7ADFE2;
     transform: scale(1.05);
-    box-shadow: 0 0 48px rgba(101,210,213,0.5);
+    box-shadow: 0 0 56px rgba(101,210,213,0.6), 0 0 16px rgba(101,210,213,0.4);
   }
 
   /* Bento cards */
@@ -160,8 +160,8 @@
 <!-- ════════════════════════════════════════
      NAVBAR
 ════════════════════════════════════════ -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between transition-all duration-300">
-  <a href="#" class="flex items-center gap-2.5 text-white font-black text-xl tracking-tighter no-underline">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between transition-all duration-300" style="background:rgba(8,10,15,0.5);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);">
+  <a href="#" class="flex items-center gap-2.5 text-white font-black tracking-tighter no-underline" style="font-size:22px;letter-spacing:-0.8px;">
     <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black" style="background:#65D2D5;color:#080A0F;box-shadow:0 0 20px rgba(101,210,213,0.4);">⚡</div>
     Eficia
   </a>
@@ -184,6 +184,8 @@
     </video>
   </div>
 
+  <!-- Gradiente izquierda → derecha para que el texto resalte -->
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right, rgba(8,10,15,0.97) 0%, rgba(8,10,15,0.85) 30%, rgba(8,10,15,0.4) 55%, transparent 80%);pointer-events:none;"></div>
   <!-- Radial glow -->
   <div class="hero-glow"></div>
 
@@ -220,27 +222,28 @@
       </div>
     </div>
 
-    <!-- Stats abajo -->
-    <div class="flex items-center gap-10 flex-wrap"
-         data-aos="fade-up" data-aos-duration="700" data-aos-delay="320">
-      <div class="text-left">
-        <div class="font-black text-3xl tracking-tighter text-white">100%</div>
-        <div class="text-xs text-white/40 uppercase tracking-widest mt-1">En la nube</div>
+    <!-- Stats abajo — pills con glass -->
+    <div class="flex items-center gap-3 flex-wrap"
+         data-aos="fade-up" data-aos-duration="700" data-aos-delay="320"
+         style="background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px 24px;width:fit-content;">
+      <div class="flex items-center gap-2">
+        <span class="font-black text-xl tracking-tighter text-white">100%</span>
+        <span class="text-xs text-white/40 uppercase tracking-widest">En la nube</span>
       </div>
-      <div class="w-px h-8 bg-white/10"></div>
-      <div class="text-left">
-        <div class="font-black text-3xl tracking-tighter text-white">0 papel</div>
-        <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Digitalización total</div>
+      <div class="w-px h-5 bg-white/10"></div>
+      <div class="flex items-center gap-2">
+        <span class="font-black text-xl tracking-tighter text-white">0 papel</span>
+        <span class="text-xs text-white/40 uppercase tracking-widest">Digital</span>
       </div>
-      <div class="w-px h-8 bg-white/10"></div>
-      <div class="text-left">
-        <div class="font-black text-3xl tracking-tighter text-white">24/7</div>
-        <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Bot WhatsApp</div>
+      <div class="w-px h-5 bg-white/10"></div>
+      <div class="flex items-center gap-2">
+        <span class="font-black text-xl tracking-tighter text-white">24/7</span>
+        <span class="text-xs text-white/40 uppercase tracking-widest">Bot WhatsApp</span>
       </div>
-      <div class="w-px h-8 bg-white/10"></div>
-      <div class="text-left">
-        <div class="font-black text-3xl tracking-tighter text-white">IA</div>
-        <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Incluida</div>
+      <div class="w-px h-5 bg-white/10"></div>
+      <div class="flex items-center gap-2">
+        <span class="font-black text-xl tracking-tighter" style="color:#65D2D5;">IA</span>
+        <span class="text-xs text-white/40 uppercase tracking-widest">Incluida</span>
       </div>
     </div>
 
