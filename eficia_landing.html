@@ -415,79 +415,250 @@
 
 
 <!-- ════════════════════════════════════════
-     PRICING
-════════════════════════════════════════ -->
-<section id="precios" class="max-w-6xl mx-auto px-6 py-24">
+   <!-- SECCIÓN PRICING -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-24" id="precios">
 
-  <div class="text-center mb-16" data-aos="fade-up">
-    <div class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#65D2D5;">— Planes</div>
-    <h2 class="font-black tracking-tighter text-white" style="font-size:clamp(36px,5vw,60px);">
-      Precios sin sorpresas.
-    </h2>
-    <p class="text-white/40 mt-4 font-light">14 días gratis en todos los planes. Sin tarjeta de crédito.</p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start" data-aos="fade-up" data-aos-delay="100">
-
-    <!-- Starter -->
-    <div class="bento p-8">
-      <div class="text-xs font-semibold tracking-widest uppercase text-white/30 mb-3">Starter</div>
-      <div class="font-black tracking-tighter text-white leading-none mb-1" style="font-size:52px;">$25<span class="text-xl text-white/30 font-normal ml-1">USD</span></div>
-      <div class="text-xs text-white/30 mb-7">por mes</div>
-      <div class="h-px bg-white/5 mb-7"></div>
-      <ul class="space-y-3 mb-8 list-none">
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Dashboard de stock</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Ventas y movimientos</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Precios de proveedores</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Presupuestos PDF</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/30 font-light"><span class="text-white/20 mt-0.5 flex-shrink-0">—</span> Asistente IA</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/30 font-light"><span class="text-white/20 mt-0.5 flex-shrink-0">—</span> Bot WhatsApp</li>
-      </ul>
-      <a href="#" class="block w-full text-center py-3 rounded-xl text-sm font-semibold border border-white/10 text-white/50 hover:text-white hover:border-white/20 transition-all no-underline">
-        Empezar gratis
-      </a>
+    <!-- ENCABEZADO -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-12 gap-6">
+        <div class="max-w-2xl">
+            <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PRECIOS</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                Planes simples,<br>sin sorpresas.
+            </h2>
+            <p class="text-zinc-400 text-lg">Precios de lanzamiento por tiempo limitado. Sin contratos anuales.</p>
+        </div>
+        <!-- Badge lanzamiento -->
+        <div class="md:pb-2 flex-shrink-0">
+            <span class="inline-flex items-center gap-2 bg-[#65D2D5]/10 border border-[#65D2D5]/30 text-[#65D2D5] text-sm font-semibold rounded-full px-5 py-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Precio de lanzamiento activo
+            </span>
+        </div>
     </div>
 
-    <!-- Pro (featured) -->
-    <div class="bento price-featured p-8 relative">
-      <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1.5 rounded-full" style="background:#65D2D5;color:#080A0F;">Más popular</div>
-      <div class="text-xs font-semibold tracking-widest uppercase mb-3" style="color:#65D2D5;">Pro</div>
-      <div class="font-black tracking-tighter text-white leading-none mb-1" style="font-size:52px;">$45<span class="text-xl text-white/30 font-normal ml-1">USD</span></div>
-      <div class="text-xs text-white/30 mb-7">por mes</div>
-      <div class="h-px bg-white/5 mb-7"></div>
-      <ul class="space-y-3 mb-8 list-none">
-        <li class="flex items-start gap-2.5 text-sm text-white/70 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Todo lo del Starter</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/70 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> <strong class="font-semibold text-white">Asistente IA incluido</strong></li>
-        <li class="flex items-start gap-2.5 text-sm text-white/70 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> <strong class="font-semibold text-white">Bot WhatsApp turnos</strong></li>
-        <li class="flex items-start gap-2.5 text-sm text-white/70 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Órdenes de compra</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/70 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Exportación Excel</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/70 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Hasta 3 usuarios</li>
-      </ul>
-      <a href="#" class="btn-glow block w-full text-center py-3 rounded-xl text-sm font-bold no-underline">
-        Empezar gratis →
-      </a>
+    <!-- GRID 3 PLANES -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mb-16">
+
+        <!-- Plan Eficia -->
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+            <div class="mb-6">
+                <p class="text-zinc-400 text-sm font-medium mb-1">Eficia</p>
+                <div class="flex items-end gap-2 mb-1">
+                    <span class="text-4xl font-black text-white">$40.000</span>
+                    <span class="text-zinc-500 text-sm mb-1">/mes</span>
+                </div>
+                <p class="text-zinc-600 text-sm line-through">$56.000 precio regular</p>
+            </div>
+            <div class="h-px bg-white/10 mb-6"></div>
+            <!-- Features -->
+            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Todos los módulos incluidos
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Asistente IA — 30 usos/día
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Bot WhatsApp — 400 conv/mes
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    1 usuario
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Soporte por email
+                </li>
+            </ul>
+            <a href="#contacto" class="w-full text-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold rounded-full px-6 py-3 transition-all duration-300 text-sm">
+                Empezar ahora
+            </a>
+        </div>
+
+        <!-- Plan Eficia+ (DESTACADO) -->
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-[#65D2D5]/50 p-8 flex flex-col hover:-translate-y-1 transition-all duration-300 shadow-[0_0_40px_rgba(101,210,213,0.1)]">
+            <!-- Badge popular -->
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span class="bg-[#65D2D5] text-black text-xs font-black rounded-full px-4 py-1.5 whitespace-nowrap">MÁS POPULAR</span>
+            </div>
+            <div class="mb-6">
+                <p class="text-zinc-400 text-sm font-medium mb-1">Eficia+</p>
+                <div class="flex items-end gap-2 mb-1">
+                    <span class="text-4xl font-black text-white">$70.000</span>
+                    <span class="text-zinc-500 text-sm mb-1">/mes</span>
+                </div>
+                <p class="text-zinc-600 text-sm line-through">$94.000 precio regular</p>
+            </div>
+            <div class="h-px bg-[#65D2D5]/20 mb-6"></div>
+            <!-- Features -->
+            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Todos los módulos incluidos
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Asistente IA — 100 usos/día
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Bot WhatsApp — 1.200 conv/mes
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    3 usuarios
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Soporte por chat
+                </li>
+            </ul>
+            <a href="#contacto" class="w-full text-center bg-[#65D2D5] hover:bg-[#52b5b8] text-black font-bold rounded-full px-6 py-3 transition-all duration-300 text-sm shadow-[0_0_20px_rgba(101,210,213,0.3)]">
+                Empezar ahora
+            </a>
+        </div>
+
+        <!-- Plan Eficia Pro -->
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+            <div class="mb-6">
+                <p class="text-zinc-400 text-sm font-medium mb-1">Eficia Pro</p>
+                <div class="flex items-end gap-2 mb-1">
+                    <span class="text-4xl font-black text-white">$115.000</span>
+                    <span class="text-zinc-500 text-sm mb-1">/mes</span>
+                </div>
+                <p class="text-zinc-600 text-sm line-through">$150.000 precio regular</p>
+            </div>
+            <div class="h-px bg-white/10 mb-6"></div>
+            <!-- Features -->
+            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Todos los módulos incluidos
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Asistente IA — Ilimitado
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Bot WhatsApp — Ilimitado
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Usuarios ilimitados
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Soporte dedicado prioritario
+                </li>
+            </ul>
+            <a href="#contacto" class="w-full text-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold rounded-full px-6 py-3 transition-all duration-300 text-sm">
+                Empezar ahora
+            </a>
+        </div>
+
     </div>
 
-    <!-- Enterprise -->
-    <div class="bento p-8">
-      <div class="text-xs font-semibold tracking-widest uppercase text-white/30 mb-3">Multi-sucursal</div>
-      <div class="font-black tracking-tighter text-white leading-none mb-1" style="font-size:36px;letter-spacing:-1px;">A medida</div>
-      <div class="text-xs text-white/30 mb-7">cotización personalizada</div>
-      <div class="h-px bg-white/5 mb-7"></div>
-      <ul class="space-y-3 mb-8 list-none">
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Todo lo del Pro</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Múltiples sucursales</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Usuarios ilimitados</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Integración ML / Tiendanube</li>
-        <li class="flex items-start gap-2.5 text-sm text-white/60 font-light"><span style="color:#65D2D5;" class="mt-0.5 flex-shrink-0">✦</span> Onboarding personalizado</li>
-      </ul>
-      <a href="mailto:info@eficientapp.com" class="block w-full text-center py-3 rounded-xl text-sm font-semibold border border-white/10 text-white/50 hover:text-white hover:border-white/20 transition-all no-underline">
-        Hablar con ventas →
-      </a>
+    <!-- SEPARADOR -->
+    <div class="flex items-center gap-4 mb-16">
+        <div class="h-px bg-white/10 flex-grow"></div>
+        <p class="text-zinc-500 text-sm whitespace-nowrap">¿No tenés página web? También lo resolvemos.</p>
+        <div class="h-px bg-white/10 flex-grow"></div>
     </div>
 
-  </div>
+    <!-- ADD-ON WEB: 2 COLUMNAS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full">
+
+        <!-- Landing Simple -->
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+            <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">01</span>
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
+                <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            <p class="text-zinc-400 text-sm font-medium mb-1">Landing Page</p>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-3xl font-black text-white">$80.000</span>
+                <span class="text-zinc-500 text-sm mb-1">pago único</span>
+            </div>
+            <div class="h-px bg-white/10 mb-6"></div>
+            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    1 página con todas las secciones
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Diseño personalizado a tu marca
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Formulario de contacto + WhatsApp
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Entrega en 5-7 días
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-400">
+                    <svg class="w-4 h-4 text-zinc-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Mantenimiento: $15.000/mes opcional
+                </li>
+            </ul>
+            <a href="#contacto" class="w-full text-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold rounded-full px-6 py-3 transition-all duration-300 text-sm">
+                Consultar
+            </a>
+        </div>
+
+        <!-- Sitio Completo -->
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+            <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">02</span>
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
+                <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                </svg>
+            </div>
+            <p class="text-zinc-400 text-sm font-medium mb-1">Sitio Completo</p>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-3xl font-black text-white">$150.000</span>
+                <span class="text-zinc-500 text-sm mb-1">pago único</span>
+            </div>
+            <div class="h-px bg-white/10 mb-6"></div>
+            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Hasta 5 páginas independientes
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Diseño a medida premium
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Formulario de contacto + WhatsApp
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                    <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Entrega en 10-15 días
+                </li>
+                <li class="flex items-start gap-3 text-sm text-zinc-400">
+                    <svg class="w-4 h-4 text-zinc-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Mantenimiento: $25.000/mes opcional
+                </li>
+            </ul>
+            <a href="#contacto" class="w-full text-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold rounded-full px-6 py-3 transition-all duration-300 text-sm">
+                Consultar
+            </a>
+        </div>
+
+    </div>
+
 </section>
+<!-- FIN SECCIÓN PRICING -->
+
 
 <!-- ════════════════════════════════════════
      CTA FINAL
