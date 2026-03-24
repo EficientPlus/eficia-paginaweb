@@ -768,33 +768,33 @@
 <div class="w-full max-w-screen-xl mx-auto px-4 pb-24" id="contacto">
     <div class="w-full h-auto min-h-[450px] rounded-[2rem] p-12 md:p-24 relative overflow-hidden border border-white/10 flex flex-col justify-center items-center text-center">
 
-        <!-- Fondo Oscuro -->
+        <!-- Fondo limpio para el video -->
         <div class="absolute inset-0 bg-[#0F0F11] z-0"></div>
-
-        <!-- Efecto Glow animado con CSS -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#65D2D5] opacity-20 blur-[100px] rounded-full pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
-
-        <!-- Textura sutil de puntitos -->
-        <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+        <div class="absolute inset-0 bg-black/60 z-[1]"></div>
 
         <!-- Contenido Frontal -->
         <div class="relative z-10 flex flex-col items-center">
-            <span class="text-[#65D2D5] text-xs font-bold tracking-widest uppercase mb-6 block">— Empezá Hoy</span>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-[90%] md:max-w-3xl tracking-tight">
-                Tu negocio está para crecer,<br>no para cargar datos a mano.
+
+            <span class="text-[#65D2D5] text-xs font-bold tracking-widest uppercase mb-6 block relative z-10">— Empezá Hoy</span>
+
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-4xl mx-auto leading-[1.15] tracking-tight relative z-10">
+                Tu negocio está para crecer,<br class="hidden md:block">no para cargar datos a mano.
             </h2>
-            <p class="text-zinc-400 mb-10 max-w-xl text-lg">
+
+            <p class="text-zinc-400 mb-10 max-w-xl text-lg relative z-10">
                 Dejá de perder tiempo en tareas repetitivas. Empezá a automatizar con Eficia hoy mismo.
             </p>
-            <a href="#" class="bg-[#65D2D5] text-black font-bold text-lg px-8 py-3.5 rounded-full transition-transform hover:scale-105 flex items-center gap-2 shadow-[0_0_20px_rgba(101,210,213,0.3)] animate-pulse hover:animate-none">
+
+            <a href="#" class="relative z-10 bg-[#65D2D5] hover:bg-[#52b5b8] text-black font-bold text-lg px-8 py-3.5 rounded-full transition-transform hover:scale-105 flex items-center gap-2 shadow-[0_0_20px_rgba(101,210,213,0.3)] animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite] hover:animate-none mb-4">
                 Agendar demostración gratuita
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
-            <p class="text-zinc-300 mt-5 text-sm md:text-base font-medium tracking-wide">
+
+            <p class="text-zinc-300 mt-5 text-sm md:text-base font-medium tracking-wide relative z-10">
                 Llamada de 15 min · Sin compromiso
             </p>
-        </div>
 
+        </div>
     </div>
 </div>
 
@@ -860,5 +860,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </style>
 </body>
 </html>
+
 
 
