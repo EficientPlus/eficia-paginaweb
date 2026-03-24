@@ -758,21 +758,24 @@
 </div>
 
 <!-- ════════════════════════════════════════
-     CTA FINAL 16:9
+     CTA FINAL 21:9
 ════════════════════════════════════════ -->
-<div class="max-w-screen-xl mx-auto px-4 pb-24 w-full" id="contacto">
-    <div class="w-full rounded-3xl p-12 md:p-24 relative overflow-hidden border border-white/10 aspect-video md:aspect-[21/9] flex flex-col justify-center items-center text-center">
+<div class="w-full max-w-screen-xl mx-auto px-4 pb-24" id="contacto">
+    <div class="w-full h-auto min-h-[400px] rounded-[2rem] p-12 md:p-24 relative overflow-hidden border border-white/10 flex flex-col justify-center items-center text-center aspect-video md:aspect-[21/9]">
 
         <!-- Fondo preparado para video -->
         <div class="absolute inset-0 bg-[#0F0F11] z-0"></div>
 
+        <!-- Overlay gradiente sobre el video -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-[1]"></div>
+
         <!-- Glow decorativo -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#65D2D5]/5 rounded-full blur-3xl pointer-events-none z-0"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#65D2D5]/5 rounded-full blur-3xl pointer-events-none z-[1]"></div>
 
         <!-- Contenido centrado -->
         <div class="relative z-10 flex flex-col items-center text-center">
             <span class="text-[#65D2D5] text-xs font-bold tracking-widest uppercase mb-4 block">— Empezá Hoy</span>
-            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 max-w-3xl mx-auto tracking-tight leading-tight">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-[90%] md:max-w-4xl mx-auto tracking-tight leading-tight">
                 Tu negocio está para crecer,<br>no para cargar datos a mano.
             </h2>
             <p class="text-zinc-400 mb-8 max-w-xl mx-auto text-lg">
