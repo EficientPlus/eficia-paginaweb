@@ -415,11 +415,11 @@
 
 
 <!-- ════════════════════════════════════════
-   <!-- SECCIÓN PRICING -->
+ <!-- SECCIÓN PRICING -->
 <section class="w-full px-4 md:px-12 xl:px-24 py-24" id="precios">
 
     <!-- ENCABEZADO -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-12 gap-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-16 gap-6">
         <div class="max-w-2xl">
             <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PRECIOS</p>
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
@@ -427,7 +427,6 @@
             </h2>
             <p class="text-zinc-400 text-lg">Precios de lanzamiento por tiempo limitado. Sin contratos anuales.</p>
         </div>
-        <!-- Badge lanzamiento -->
         <div class="md:pb-2 flex-shrink-0">
             <span class="inline-flex items-center gap-2 bg-[#65D2D5]/10 border border-[#65D2D5]/30 text-[#65D2D5] text-sm font-semibold rounded-full px-5 py-2">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -437,21 +436,20 @@
     </div>
 
     <!-- GRID 3 PLANES -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full items-start mb-16">
 
         <!-- Plan Eficia -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-white/30 transition-all duration-300">
             <div class="mb-6">
-                <p class="text-zinc-400 text-sm font-medium mb-1">Eficia</p>
-                <div class="flex items-end gap-2 mb-1">
-                    <span class="text-4xl font-black text-white">$40.000</span>
+                <p class="text-zinc-400 text-sm font-semibold uppercase tracking-widest mb-3">Eficia</p>
+                <div class="flex items-end gap-2 mb-2">
+                    <span class="text-5xl font-black text-white leading-none">$40.000</span>
                     <span class="text-zinc-500 text-sm mb-1">/mes</span>
                 </div>
                 <p class="text-zinc-600 text-sm line-through">$56.000 precio regular</p>
             </div>
             <div class="h-px bg-white/10 mb-6"></div>
-            <!-- Features -->
-            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+            <ul class="flex flex-col gap-4 mb-8 flex-grow">
                 <li class="flex items-start gap-3 text-sm text-zinc-300">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Todos los módulos incluidos
@@ -479,61 +477,59 @@
         </div>
 
         <!-- Plan Eficia+ (DESTACADO) -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-[#65D2D5]/50 p-8 flex flex-col hover:-translate-y-1 transition-all duration-300 shadow-[0_0_40px_rgba(101,210,213,0.1)]">
+        <div class="col-span-1 w-full relative group rounded-2xl bg-gradient-to-b from-[#0F0F11] to-[#1a1a2e] border border-[#65D2D5]/50 p-10 flex flex-col hover:-translate-y-2 hover:border-[#65D2D5]/80 transition-all duration-300 shadow-[0_0_40px_rgba(101,210,213,0.15)] hover:shadow-[0_0_60px_rgba(101,210,213,0.25)] md:-mt-4 md:-mb-4">
             <!-- Badge popular -->
             <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span class="bg-[#65D2D5] text-black text-xs font-black rounded-full px-4 py-1.5 whitespace-nowrap">MÁS POPULAR</span>
+                <span class="bg-[#65D2D5] text-black text-xs font-black rounded-full px-5 py-1.5 whitespace-nowrap tracking-wide">MÁS POPULAR</span>
             </div>
             <div class="mb-6">
-                <p class="text-zinc-400 text-sm font-medium mb-1">Eficia+</p>
-                <div class="flex items-end gap-2 mb-1">
-                    <span class="text-4xl font-black text-white">$70.000</span>
+                <p class="text-[#65D2D5] text-sm font-semibold uppercase tracking-widest mb-3">Eficia+</p>
+                <div class="flex items-end gap-2 mb-2">
+                    <span class="text-5xl font-black text-white leading-none">$70.000</span>
                     <span class="text-zinc-500 text-sm mb-1">/mes</span>
                 </div>
                 <p class="text-zinc-600 text-sm line-through">$94.000 precio regular</p>
             </div>
             <div class="h-px bg-[#65D2D5]/20 mb-6"></div>
-            <!-- Features -->
-            <ul class="flex flex-col gap-3 mb-8 flex-grow">
-                <li class="flex items-start gap-3 text-sm text-zinc-300">
+            <ul class="flex flex-col gap-4 mb-8 flex-grow">
+                <li class="flex items-start gap-3 text-sm text-zinc-200">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Todos los módulos incluidos
                 </li>
-                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <li class="flex items-start gap-3 text-sm text-zinc-200">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Asistente IA — 100 usos/día
                 </li>
-                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <li class="flex items-start gap-3 text-sm text-zinc-200">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Bot WhatsApp — 1.200 conv/mes
                 </li>
-                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <li class="flex items-start gap-3 text-sm text-zinc-200">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     3 usuarios
                 </li>
-                <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <li class="flex items-start gap-3 text-sm text-zinc-200">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Soporte por chat
                 </li>
             </ul>
-            <a href="#contacto" class="w-full text-center bg-[#65D2D5] hover:bg-[#52b5b8] text-black font-bold rounded-full px-6 py-3 transition-all duration-300 text-sm shadow-[0_0_20px_rgba(101,210,213,0.3)]">
+            <a href="#contacto" class="w-full text-center bg-[#65D2D5] hover:bg-[#52b5b8] text-black font-bold rounded-full px-6 py-3 transition-all duration-300 text-sm shadow-[0_0_20px_rgba(101,210,213,0.4)] hover:shadow-[0_0_30px_rgba(101,210,213,0.6)]">
                 Empezar ahora
             </a>
         </div>
 
         <!-- Plan Eficia Pro -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-white/30 transition-all duration-300">
             <div class="mb-6">
-                <p class="text-zinc-400 text-sm font-medium mb-1">Eficia Pro</p>
-                <div class="flex items-end gap-2 mb-1">
-                    <span class="text-4xl font-black text-white">$115.000</span>
+                <p class="text-zinc-400 text-sm font-semibold uppercase tracking-widest mb-3">Eficia Pro</p>
+                <div class="flex items-end gap-2 mb-2">
+                    <span class="text-5xl font-black text-white leading-none">$115.000</span>
                     <span class="text-zinc-500 text-sm mb-1">/mes</span>
                 </div>
                 <p class="text-zinc-600 text-sm line-through">$150.000 precio regular</p>
             </div>
             <div class="h-px bg-white/10 mb-6"></div>
-            <!-- Features -->
-            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+            <ul class="flex flex-col gap-4 mb-8 flex-grow">
                 <li class="flex items-start gap-3 text-sm text-zinc-300">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Todos los módulos incluidos
@@ -573,20 +569,20 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full">
 
         <!-- Landing Simple -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-white/30 transition-all duration-300 overflow-hidden">
             <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">01</span>
             <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
                 <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
             </div>
-            <p class="text-zinc-400 text-sm font-medium mb-1">Landing Page</p>
-            <div class="flex items-end gap-2 mb-4">
-                <span class="text-3xl font-black text-white">$80.000</span>
+            <p class="text-zinc-400 text-sm font-semibold uppercase tracking-widest mb-3">Landing Page</p>
+            <div class="flex items-end gap-2 mb-2">
+                <span class="text-5xl font-black text-white leading-none">$80.000</span>
                 <span class="text-zinc-500 text-sm mb-1">pago único</span>
             </div>
-            <div class="h-px bg-white/10 mb-6"></div>
-            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+            <div class="h-px bg-white/10 my-6"></div>
+            <ul class="flex flex-col gap-4 mb-8 flex-grow">
                 <li class="flex items-start gap-3 text-sm text-zinc-300">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     1 página con todas las secciones
@@ -614,20 +610,20 @@
         </div>
 
         <!-- Sitio Completo -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300">
+        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-white/30 transition-all duration-300 overflow-hidden">
             <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">02</span>
             <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
                 <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
                 </svg>
             </div>
-            <p class="text-zinc-400 text-sm font-medium mb-1">Sitio Completo</p>
-            <div class="flex items-end gap-2 mb-4">
-                <span class="text-3xl font-black text-white">$150.000</span>
+            <p class="text-zinc-400 text-sm font-semibold uppercase tracking-widest mb-3">Sitio Completo</p>
+            <div class="flex items-end gap-2 mb-2">
+                <span class="text-5xl font-black text-white leading-none">$150.000</span>
                 <span class="text-zinc-500 text-sm mb-1">pago único</span>
             </div>
-            <div class="h-px bg-white/10 mb-6"></div>
-            <ul class="flex flex-col gap-3 mb-8 flex-grow">
+            <div class="h-px bg-white/10 my-6"></div>
+            <ul class="flex flex-col gap-4 mb-8 flex-grow">
                 <li class="flex items-start gap-3 text-sm text-zinc-300">
                     <svg class="w-4 h-4 text-[#65D2D5] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     Hasta 5 páginas independientes
