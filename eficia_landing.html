@@ -766,36 +766,35 @@
      CTA FINAL
 ════════════════════════════════════════ -->
 <div class="w-full max-w-screen-xl mx-auto px-4 pb-24" id="contacto">
-    <div class="w-full h-auto min-h-[450px] rounded-[2rem] p-12 md:p-24 relative overflow-hidden border border-white/10 flex flex-col justify-center items-center text-center aspect-video md:aspect-[21/9]">
+    <div class="w-full h-auto min-h-[450px] rounded-[2rem] p-12 md:p-24 relative overflow-hidden border border-white/10 flex flex-col justify-center items-center text-center">
 
-        <!-- Fondo Oscuro / Capa polarizada para el futuro video -->
+        <!-- Fondo Oscuro -->
         <div class="absolute inset-0 bg-[#0F0F11] z-0"></div>
-        <div class="absolute inset-0 bg-black/50 z-[1]"></div>
+
+        <!-- Efecto Glow animado con CSS -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#65D2D5] opacity-20 blur-[100px] rounded-full pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
+
+        <!-- Textura sutil de puntitos -->
+        <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
 
         <!-- Contenido Frontal -->
         <div class="relative z-10 flex flex-col items-center">
-
-            <!-- Badge de Social Proof -->
-            <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-full py-1.5 px-4 mb-8">
-                <div class="flex -space-x-2">
-                    <div class="w-6 h-6 rounded-full bg-zinc-700 border border-[#0F0F11]"></div>
-                    <div class="w-6 h-6 rounded-full bg-zinc-600 border border-[#0F0F11]"></div>
-                    <div class="w-6 h-6 rounded-full bg-zinc-500 border border-[#0F0F11]"></div>
-                </div>
-                <span class="text-xs text-zinc-300 font-medium">Unite a las PYMES que ya automatizan</span>
-            </div>
-
-            <!-- Textos -->
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-[90%] md:max-w-4xl tracking-tight">Tu negocio está para crecer,<br>dejá la rutina a la inteligencia.</h2>
-
-            <!-- Botón y subtítulo -->
-            <a href="#" class="mt-4 bg-[#65D2D5] hover:bg-[#52b5b8] text-black font-bold text-lg px-8 py-3.5 rounded-full transition-transform hover:scale-105 flex items-center gap-2 shadow-[0_0_20px_rgba(101,210,213,0.3)]">
+            <span class="text-[#65D2D5] text-xs font-bold tracking-widest uppercase mb-6 block">— Empezá Hoy</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-[90%] md:max-w-3xl tracking-tight">
+                Tu negocio está para crecer,<br>no para cargar datos a mano.
+            </h2>
+            <p class="text-zinc-400 mb-10 max-w-xl text-lg">
+                Dejá de perder tiempo en tareas repetitivas. Empezá a automatizar con Eficia hoy mismo.
+            </p>
+            <a href="#" class="bg-[#65D2D5] text-black font-bold text-lg px-8 py-3.5 rounded-full transition-transform hover:scale-105 flex items-center gap-2 shadow-[0_0_20px_rgba(101,210,213,0.3)] animate-pulse hover:animate-none">
                 Agendar demostración gratuita
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
-            <p class="text-zinc-400 mt-5 text-sm md:text-base font-medium tracking-wide">Llamada de 15 min · Sin compromiso</p>
-
+            <p class="text-zinc-300 mt-5 text-sm md:text-base font-medium tracking-wide">
+                Llamada de 15 min · Sin compromiso
+            </p>
         </div>
+
     </div>
 </div>
 
