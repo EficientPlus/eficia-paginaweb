@@ -263,82 +263,77 @@
     <p class="text-white/40 mt-4 font-light text-lg leading-relaxed">Sin features genéricos. Sin costos inflados.</p>
   </div>
 
-  <!-- Bento grid -->
-  <div class="grid grid-cols-12 gap-4">
+  <!-- BENTO GRID ASIMÉTRICO -->
+  <div class="grid grid-cols-12 grid-rows-[auto_auto] gap-4" data-aos="fade-up" data-aos-delay="80">
 
-    <!-- IA — Grande horizontal -->
-    <div class="bento col-span-12 md:col-span-7 p-8" data-aos="fade-up" data-aos-delay="0">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+    <!-- ① IA — ancha arriba izquierda col-span-7 -->
+    <div class="bento col-span-12 md:col-span-7 flex flex-col overflow-hidden" style="min-height:320px;">
+      <!-- Texto -->
+      <div class="p-8 pb-4 flex-shrink-0">
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
              style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
-          <i data-lucide="bot" style="color:#65D2D5;width:22px;height:22px;"></i>
+          <i data-lucide="bot" style="color:#65D2D5;width:20px;height:20px;"></i>
+        </div>
+        <h3 class="font-bold text-2xl tracking-tight text-white mb-2">Asistente IA incluido</h3>
+        <p class="text-white/40 font-light text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
+      </div>
+      <!-- Imagen placeholder dashboard -->
+      <div class="flex-1 mx-4 mb-4 rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);min-height:140px;">
+        <img src="dashboard-mockup.png" alt="Dashboard IA" class="w-full h-full object-cover object-top hover:scale-105 transition-all duration-500 opacity-0" onerror="this.style.display='none'">
+        <div class="w-full h-full flex items-center justify-center" style="min-height:140px;">
+          <span class="text-xs text-white/20 tracking-widest uppercase">→ colocá tu screenshot del dashboard acá</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② Bot WhatsApp — vertical gigante col-span-5 row-span-2 -->
+    <div class="bento col-span-12 md:col-span-5 md:row-span-2 flex flex-col overflow-hidden" style="min-height:500px;">
+      <!-- Texto -->
+      <div class="p-8 pb-4 flex-shrink-0">
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
+             style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
+          <i data-lucide="message-circle" style="color:#65D2D5;width:20px;height:20px;"></i>
+        </div>
+        <h3 class="font-bold text-2xl tracking-tight text-white mb-2">Bot de WhatsApp</h3>
+        <p class="text-white/40 font-light text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
+      </div>
+      <!-- Imagen placeholder celular vertical -->
+      <div class="flex-1 mx-4 mb-4 rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);min-height:300px;">
+        <img src="whatsapp-chat.png" alt="Chat WhatsApp" class="w-full h-full object-cover object-top hover:scale-105 transition-all duration-500 opacity-0" onerror="this.style.display='none'">
+        <div class="w-full h-full flex items-center justify-center" style="min-height:300px;">
+          <span class="text-xs text-white/20 tracking-widest uppercase text-center px-4">→ colocá screenshot del chat de WhatsApp acá</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ Stock + Ventas — ancha abajo izquierda col-span-7 -->
+    <div class="bento col-span-12 md:col-span-7 flex flex-col overflow-hidden" style="min-height:220px;">
+      <!-- Texto en dos columnas -->
+      <div class="p-8 pb-4 grid grid-cols-2 gap-6 flex-shrink-0">
+        <div>
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-4"
+               style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
+            <i data-lucide="package" style="color:#65D2D5;width:20px;height:20px;"></i>
+          </div>
+          <h3 class="font-bold text-xl tracking-tight text-white mb-2">Stock en tiempo real</h3>
+          <p class="text-white/40 font-light text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
         </div>
         <div>
-          <div class="text-xs font-semibold tracking-widest uppercase text-white/30 mb-1">IA incluida</div>
-          <h3 class="font-bold text-xl tracking-tight text-white">Asistente que conoce tu negocio</h3>
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-4"
+               style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
+            <i data-lucide="bar-chart-3" style="color:#65D2D5;width:20px;height:20px;"></i>
+          </div>
+          <h3 class="font-bold text-xl tracking-tight text-white mb-2">Ventas y márgenes</h3>
+          <p class="text-white/40 font-light text-sm leading-relaxed">Cuotas, descuentos y análisis de rentabilidad por producto.</p>
         </div>
       </div>
-      <p class="text-white/40 font-light leading-relaxed text-sm mb-6">
-        Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Respuestas en lenguaje natural con tus datos reales.
-      </p>
-      <div class="flex gap-4">
-        <div>
-          <div class="font-black text-2xl tracking-tighter" style="color:#65D2D5;">~$10</div>
-          <div class="text-xs text-white/30 mt-0.5">por mes de uso intensivo</div>
-        </div>
-        <div class="w-px bg-white/10"></div>
-        <div>
-          <div class="font-black text-2xl tracking-tighter text-white">Claude</div>
-          <div class="text-xs text-white/30 mt-0.5">Sonnet 4 incluido</div>
+      <!-- Imagen placeholder dashboard horizontal -->
+      <div class="flex-1 mx-4 mb-4 rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);min-height:80px;">
+        <img src="stock-dashboard.png" alt="Stock Dashboard" class="w-full h-full object-cover object-top hover:scale-105 transition-all duration-500 opacity-0" onerror="this.style.display='none'">
+        <div class="w-full h-full flex items-center justify-center" style="min-height:80px;">
+          <span class="text-xs text-white/20 tracking-widest uppercase">→ colocá screenshot del módulo de stock acá</span>
         </div>
       </div>
-      <div class="mt-5 inline-flex items-center gap-2 text-xs font-semibold" style="color:#65D2D5;">
-        ✦ Powered by Anthropic
-      </div>
-    </div>
-
-    <!-- Bot WhatsApp -->
-    <div class="bento col-span-12 md:col-span-5 p-8" data-aos="fade-up" data-aos-delay="60">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-           style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
-        <i data-lucide="message-circle" style="color:#65D2D5;width:22px;height:22px;"></i>
-      </div>
-      <h3 class="font-bold text-xl tracking-tight text-white mb-3">Bot de WhatsApp</h3>
-      <p class="text-white/40 font-light text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona todo automáticamente.</p>
-      <div class="mt-5 text-xs font-semibold" style="color:#65D2D5;">✦ Automatización 24/7</div>
-    </div>
-
-    <!-- Stock -->
-    <div class="bento col-span-12 md:col-span-4 p-8" data-aos="fade-up" data-aos-delay="0">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-           style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
-        <i data-lucide="package" style="color:#65D2D5;width:22px;height:22px;"></i>
-      </div>
-      <h3 class="font-bold text-xl tracking-tight text-white mb-3">Stock en tiempo real</h3>
-      <p class="text-white/40 font-light text-sm leading-relaxed">Alertas, predicciones y órdenes de compra que suman el inventario automáticamente al recibirlas.</p>
-      <div class="mt-5 text-xs font-semibold" style="color:#65D2D5;">✦ Alertas automáticas</div>
-    </div>
-
-    <!-- Precios proveedores -->
-    <div class="bento col-span-12 md:col-span-4 p-8" data-aos="fade-up" data-aos-delay="60">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-           style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
-        <i data-lucide="trending-up" style="color:#65D2D5;width:22px;height:22px;"></i>
-      </div>
-      <h3 class="font-bold text-xl tracking-tight text-white mb-3">Precios sin Excel</h3>
-      <p class="text-white/40 font-light text-sm leading-relaxed">El proveedor manda la lista por WhatsApp → IA la procesa y actualiza tus precios. Sin cargar nada a mano.</p>
-      <div class="mt-5 text-xs font-semibold" style="color:#65D2D5;">✦ Procesado con IA</div>
-    </div>
-
-    <!-- Ventas -->
-    <div class="bento col-span-12 md:col-span-4 p-8" data-aos="fade-up" data-aos-delay="120">
-      <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-           style="background:rgba(101,210,213,0.1);border:1px solid rgba(101,210,213,0.2);">
-        <i data-lucide="bar-chart-3" style="color:#65D2D5;width:22px;height:22px;"></i>
-      </div>
-      <h3 class="font-bold text-xl tracking-tight text-white mb-3">Ventas y márgenes</h3>
-      <p class="text-white/40 font-light text-sm leading-relaxed">Cuotas, descuentos y medios de pago. Visualizá qué productos generan más ganancia.</p>
-      <div class="mt-5 text-xs font-semibold" style="color:#65D2D5;">✦ Análisis de rentabilidad</div>
     </div>
 
   </div>
