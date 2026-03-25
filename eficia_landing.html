@@ -271,8 +271,8 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-6 w-full">
 
         <!-- 1. Asistente IA (2 columnas arriba) -->
-        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
-            <div class="relative z-10">
+        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -281,12 +281,16 @@
                 <h3 class="text-xl font-bold text-white mb-2">Asistente IA incluido</h3>
                 <p class="text-zinc-400 text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
             </div>
-            <img src="./Foto IA.png" alt="Asistente IA" class="absolute bottom-0 right-0 w-1/2 h-full object-contain object-right-bottom opacity-40 group-hover:opacity-60 transition-opacity translate-x-4 translate-y-4">
+            <div class="absolute inset-y-0 right-0 w-1/2 md:w-2/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./Foto IA.png" alt="Asistente IA" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            </div>
         </div>
 
         <!-- 2. Bot de WhatsApp (1 columna derecha, 2 filas de alto) -->
-        <div class="lg:col-span-1 lg:row-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[500px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
-            <div class="relative z-10">
+        <div class="lg:col-span-1 lg:row-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[500px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -295,12 +299,16 @@
                 <h3 class="text-xl font-bold text-white mb-2">Bot de WhatsApp</h3>
                 <p class="text-zinc-400 text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
             </div>
-            <img src="./Foto Bot Wpp.png" alt="Bot de WhatsApp" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] h-auto object-contain opacity-40 group-hover:opacity-60 transition-opacity translate-y-8">
+            <div class="absolute inset-x-0 bottom-0 h-2/3 w-full z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./Foto Bot Wpp.png" alt="Bot de WhatsApp" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            </div>
         </div>
 
         <!-- 3. Stock en tiempo real (1 columna abajo izquierda) -->
-        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
-            <div class="relative z-10">
+        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -309,12 +317,16 @@
                 <h3 class="text-xl font-bold text-white mb-2">Stock en tiempo real</h3>
                 <p class="text-zinc-400 text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
             </div>
-            <img src="./foto control stock.png" alt="Stock" class="absolute bottom-0 right-0 w-2/3 h-full object-contain object-right-bottom opacity-40 group-hover:opacity-60 transition-opacity translate-x-4 translate-y-4">
+            <div class="absolute inset-y-0 right-0 w-1/2 md:w-2/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./foto control stock.png" alt="Stock" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            </div>
         </div>
 
         <!-- 4. Ventas y márgenes (1 columna abajo centro) -->
-        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
-            <div class="relative z-10">
+        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -323,15 +335,19 @@
                 <h3 class="text-xl font-bold text-white mb-2">Ventas y márgenes</h3>
                 <p class="text-zinc-400 text-sm leading-relaxed">Cuotas, descuentos y análisis de rentabilidad por producto.</p>
             </div>
-            <img src="./Foto Dashborad.png" alt="Ventas" class="absolute bottom-0 right-0 w-2/3 h-full object-contain object-right-bottom opacity-40 group-hover:opacity-60 transition-opacity translate-x-4 translate-y-4">
+            <div class="absolute inset-y-0 right-0 w-1/2 md:w-2/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./Foto Dashborad.png" alt="Ventas" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            </div>
         </div>
 
     </div>
 
     <!-- Fila extra: Generador de Posts (ancho completo) -->
     <div class="mt-6">
-        <div class="relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
-            <div class="relative z-10 w-1/2">
+        <div class="relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -340,12 +356,17 @@
                 <h3 class="text-xl font-bold text-white mb-2">Generador de Posts con IA</h3>
                 <p class="text-zinc-400 text-sm leading-relaxed">Generá publicaciones, promociones e imágenes para redes sociales en segundos. Solo contás qué querés publicar.</p>
             </div>
-            <img src="./foto creador de contenido.png" alt="Creador de Contenido" class="absolute bottom-0 right-0 w-2/3 h-full object-contain object-right-bottom opacity-40 group-hover:opacity-60 transition-opacity translate-x-4 translate-y-4">
+            <div class="absolute inset-y-0 right-0 w-1/2 lg:w-1/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./foto creador de contenido.png" alt="Creador de Contenido" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            </div>
         </div>
     </div>
 
 </section>
 <!-- FIN SECCIÓN BENTO GRID -->
+
 
 <!-- ════════════════════════════════════════
 <!-- SECCIÓN PROCESO -->
