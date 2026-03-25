@@ -268,10 +268,10 @@
     </div>
 
     <!-- EL GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
         
-        <!-- Tarjeta 1: Asistente IA (Ocupa 2 columnas ancho) -->
-        <div class="col-span-1 md:col-span-2 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col justify-start min-h-[280px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
+        <!-- Tarjeta 1: Asistente IA (2 columnas) -->
+        <div class="col-span-1 lg:col-span-2 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col justify-start min-h-[280px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
             <div class="relative z-10 w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -282,13 +282,13 @@
                 <p class="text-zinc-300 text-sm leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
             </div>
             <div class="absolute inset-0 z-0">
-                <img src="./Foto IA.png" alt="Asistente IA" class="w-full h-full object-cover object-center opacity-75 group-hover:opacity-90 transition-opacity duration-500" style="filter: brightness(0.9)">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#0F0F11]/95 via-[#0F0F11]/40 to-transparent"></div>
+                <img src="./Foto IA.png" alt="Asistente IA" class="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain opacity-60 group-hover:opacity-75 transition-opacity duration-500" style="filter: brightness(0.9)">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0F0F11]/95 via-[#0F0F11]/50 to-transparent"></div>
             </div>
         </div>
 
-        <!-- Tarjeta 2: Bot WhatsApp (Ocupa 1 columna ancho, 2 de alto) -->
-        <div class="col-span-1 md:row-span-2 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col min-h-[320px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
+        <!-- Tarjeta 2: Bot WhatsApp (1 columna, 2 filas) -->
+        <div class="col-span-1 lg:col-span-1 lg:row-span-2 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col min-h-[320px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
             <div class="relative z-10">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,12 +299,12 @@
                 <p class="text-zinc-300 text-sm leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
             </div>
             <div class="absolute inset-0 z-0">
-                <img src="./Foto Bot Wpp.png" alt="Bot de WhatsApp" class="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-500" style="filter: brightness(0.9)">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/30 to-transparent"></div>
+                <img src="./Foto Bot Wpp.png" alt="Bot de WhatsApp" class="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain opacity-60 group-hover:opacity-75 transition-opacity duration-500" style="filter: brightness(0.9)">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/40 to-transparent"></div>
             </div>
         </div>
 
-        <!-- Tarjeta 3: Stock (Ocupa 1 columna) -->
+        <!-- Tarjeta 3: Stock (1 columna) -->
         <div class="col-span-1 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col min-h-[220px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
             <div class="relative z-10">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
@@ -316,12 +316,12 @@
                 <p class="text-zinc-300 text-sm leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">Alertas, predicciones y órdenes de compra automáticas.</p>
             </div>
             <div class="absolute inset-0 z-0">
-                <img src="./foto control stock.png" alt="Control de Stock" class="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-500" style="filter: brightness(0.9)">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/30 to-transparent"></div>
+                <img src="./foto control stock.png" alt="Control de Stock" class="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain opacity-60 group-hover:opacity-75 transition-opacity duration-500" style="filter: brightness(0.9)">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/40 to-transparent"></div>
             </div>
         </div>
 
-        <!-- Tarjeta 4: Ventas (Ocupa 1 columna) -->
+        <!-- Tarjeta 4: Ventas (1 columna) -->
         <div class="col-span-1 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col min-h-[220px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
             <div class="relative z-10">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
@@ -333,13 +333,13 @@
                 <p class="text-zinc-300 text-sm leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">Cuotas, descuentos y análisis de rentabilidad por producto.</p>
             </div>
             <div class="absolute inset-0 z-0">
-                <img src="./Foto Dashborad.png" alt="Ventas y Dashboard" class="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-500" style="filter: brightness(0.9)">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/30 to-transparent"></div>
+                <img src="./Foto Dashborad.png" alt="Ventas y Dashboard" class="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain opacity-60 group-hover:opacity-75 transition-opacity duration-500" style="filter: brightness(0.9)">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/40 to-transparent"></div>
             </div>
         </div>
 
-        <!-- Tarjeta 5: Creador de Contenido (Ocupa 2 columnas — completa la fila) -->
-        <div class="col-span-1 md:col-span-2 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col justify-start min-h-[280px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
+        <!-- Tarjeta 5: Generador de Posts (2 columnas) -->
+        <div class="col-span-1 lg:col-span-2 relative group overflow-hidden rounded-2xl bg-[#0F0F11] border border-white/10 p-6 flex flex-col justify-start min-h-[280px] hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer">
             <div class="relative z-10 w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -350,15 +350,14 @@
                 <p class="text-zinc-300 text-sm leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">Generá publicaciones, promociones e imágenes para redes sociales en segundos. Solo contás qué querés publicar.</p>
             </div>
             <div class="absolute inset-0 z-0">
-                <img src="./foto creador de contenido.png" alt="Creador de Contenido IA" class="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-500" style="filter: brightness(0.9); object-position: right center;">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#0F0F11]/95 via-[#0F0F11]/40 to-transparent"></div>
+                <img src="./foto creador de contenido.png" alt="Creador de Contenido IA" class="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain opacity-60 group-hover:opacity-75 transition-opacity duration-500" style="filter: brightness(0.9)">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0F0F11]/95 via-[#0F0F11]/50 to-transparent"></div>
             </div>
         </div>
 
     </div>
 </section>
 <!-- FIN SECCIÓN BENTO GRID -->
-
 
 <!-- ════════════════════════════════════════
 <!-- SECCIÓN PROCESO -->
