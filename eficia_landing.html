@@ -267,10 +267,8 @@
         <p class="text-zinc-400 text-lg">Todo lo que necesitás, nada de lo que no.</p>
     </div>
 
-    <!-- Contenedor principal Grid -->
+    <!-- Contenedor principal Grid — TODO dentro del mismo grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
-
-        <!-- Fila 1: Asistente IA (2 cols) + Bot WhatsApp (1 col, 2 filas) -->
 
         <!-- 1. Asistente IA (2 columnas) -->
         <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
@@ -290,8 +288,8 @@
             </div>
         </div>
 
-        <!-- 2. Bot de WhatsApp (1 col, 2 filas — min-h aumentado) -->
-        <div class="lg:col-span-1 lg:row-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[560px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+        <!-- 2. Bot de WhatsApp (1 col, 3 filas) -->
+        <div class="lg:col-span-1 lg:row-span-3 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[560px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
             <div class="relative z-10 w-full">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -307,9 +305,7 @@
             </div>
         </div>
 
-        <!-- Fila 2: Stock (1 col) + Ventas (1 col) — Bot ocupa la col 3 -->
-
-        <!-- 3. Stock en tiempo real -->
+        <!-- 3. Stock en tiempo real (1 col) -->
         <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
             <div class="relative z-10 w-full md:w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
@@ -327,7 +323,7 @@
             </div>
         </div>
 
-        <!-- 4. Ventas y márgenes -->
+        <!-- 4. Ventas y márgenes (1 col) -->
         <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
             <div class="relative z-10 w-full md:w-2/3">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
@@ -345,11 +341,8 @@
             </div>
         </div>
 
-    </div>
-
-    <!-- Fila 3: Generador de Posts (ancho completo = 3 cols) -->
-    <div class="mt-6">
-        <div class="relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+        <!-- 5. Generador de Posts con IA (2 columnas — mismo ancho que Asistente IA) -->
+        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
             <div class="relative z-10 w-full md:w-1/2">
                 <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
                     <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -365,6 +358,7 @@
                 <img src="./foto creador de contenido.png" alt="Creador de Contenido" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
             </div>
         </div>
+
     </div>
 
 </section>
