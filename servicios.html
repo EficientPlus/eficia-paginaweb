@@ -272,15 +272,27 @@
     border-radius: inherit;
   }
 
-  /* ─── HIDE WATERMARK ─── */
-  .service-card img {
-    clip-path: inset(0 6% 8% 0);
-  }
 
   /* ─── CARD INITIAL STATE (for GSAP stagger) ─── */
   #cards .service-card {
     opacity: 0;
     transform: translateY(50px);
+  }
+
+  /* ─── SERVICE CARD IMAGES ─── */
+  .service-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s;
+  }
+  .service-card .card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
   }
 </style>
 </head>
@@ -344,7 +356,8 @@
         <h3 class="text-xl font-bold text-white mb-2">Asistente IA incluido</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
       </div>
-      <img src="./Foto IA.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
+      <div class="card-overlay" style="background:linear-gradient(to right, #1A1A1D 0%, rgba(26,26,29,0.85) 35%, rgba(26,26,29,0.3) 60%, transparent 100%);"></div>
+      <img src="./Foto IA.png" alt="" class="service-img" style="opacity:0.9;">
     </div>
 
     <!-- 2. Bot WhatsApp (1 col, 3 filas — VERTICAL) -->
@@ -355,7 +368,8 @@
         <h3 class="text-xl font-bold text-white mb-2">Bot de WhatsApp</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
       </div>
-      <img src="./Foto Bot Wpp.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="object-position:center 60%; -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, black 40%); mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, black 40%);">
+      <div class="card-overlay" style="background:linear-gradient(to bottom, #1A1A1D 0%, rgba(26,26,29,0.8) 25%, rgba(26,26,29,0.2) 45%, transparent 100%);"></div>
+      <img src="./Foto Bot Wpp.png" alt="" class="service-img" style="opacity:0.9; object-position:center 60%;">
     </div>
 
     <!-- 3. Stock en tiempo real (1 col) -->
@@ -366,7 +380,8 @@
         <h3 class="text-xl font-bold text-white mb-2">Stock en tiempo real</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
       </div>
-      <img src="./foto control stock.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
+      <div class="card-overlay" style="background:linear-gradient(to right, #1A1A1D 0%, rgba(26,26,29,0.85) 35%, rgba(26,26,29,0.3) 60%, transparent 100%);"></div>
+      <img src="./foto control stock.png" alt="" class="service-img" style="opacity:0.9;">
     </div>
 
     <!-- 4. Ventas y márgenes (1 col) -->
@@ -377,7 +392,8 @@
         <h3 class="text-xl font-bold text-white mb-2">Ventas y márgenes</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Análisis de rentabilidad por producto. Historial completo de operaciones.</p>
       </div>
-      <img src="./Foto Dashborad.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
+      <div class="card-overlay" style="background:linear-gradient(to right, #1A1A1D 0%, rgba(26,26,29,0.85) 35%, rgba(26,26,29,0.3) 60%, transparent 100%);"></div>
+      <img src="./Foto Dashborad.png" alt="" class="service-img" style="opacity:0.9;">
     </div>
 
     <!-- 5. Generador IA (2 cols) -->
@@ -388,7 +404,8 @@
         <h3 class="text-xl font-bold text-white mb-2">Generador de contenido con IA</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Generá publicaciones, promociones e imágenes para redes sociales en segundos. Solo contás qué querés publicar.</p>
       </div>
-      <img src="./foto creador de contenido.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
+      <div class="card-overlay" style="background:linear-gradient(to right, #1A1A1D 0%, rgba(26,26,29,0.85) 35%, rgba(26,26,29,0.3) 60%, transparent 100%);"></div>
+      <img src="./foto creador de contenido.png" alt="" class="service-img" style="opacity:0.9;">
     </div>
 
   </div>
