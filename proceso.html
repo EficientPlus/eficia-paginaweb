@@ -177,6 +177,100 @@
   .form-input::placeholder { color: rgba(255,255,255,0.25); }
   textarea.form-input { resize: vertical; min-height: 120px; }
   @media (max-width: 768px) { .page-hero { padding: 120px 20px 60px; } }
+
+  /* ─── VIDEO PLACEHOLDER ─── */
+  .video-placeholder {
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(101,210,213,0.06) 0%, rgba(15,15,17,0.8) 70%);
+    border: 1px dashed rgba(101,210,213,0.2);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .video-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(101,210,213,0.08), transparent 60%);
+    animation: vpGlow 4s ease-in-out infinite alternate;
+  }
+  @keyframes vpGlow {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.05); }
+  }
+  .video-placeholder .vp-label {
+    font-size: 13px; color: rgba(255,255,255,0.2);
+    text-transform: uppercase; letter-spacing: 0.15em;
+    z-index: 1; text-align: center; line-height: 1.6;
+  }
+  .video-placeholder .vp-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(101,210,213,0.1); border: 1px solid rgba(101,210,213,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .video-placeholder .vp-icon svg { width: 20px; height: 20px; stroke: rgba(101,210,213,0.4); fill: none; stroke-width: 1.5; }
+
+  /* ─── ENERGY BEAM EFFECT ─── */
+  .energy-source:hover ~ .energy-target .service-card,
+  .energy-source:hover ~ .service-card {
+    border-color: rgba(101,210,213,0.4) !important;
+    box-shadow: 0 0 30px rgba(101,210,213,0.12), inset 0 0 30px rgba(101,210,213,0.03) !important;
+  }
+  .service-card {
+    transition: all 0.6s cubic-bezier(0.16,1,0.3,1) !important;
+  }
+  .service-card:hover {
+    border-color: rgba(101,210,213,0.5) !important;
+    box-shadow: 0 0 40px rgba(101,210,213,0.2), inset 0 0 40px rgba(101,210,213,0.05) !important;
+    transform: translateY(-6px) !important;
+  }
+  
+  /* ─── ENERGY LINE (animated) ─── */
+  .energy-line {
+    position: absolute;
+    width: 2px; height: 0;
+    background: linear-gradient(to bottom, rgba(101,210,213,0.5), transparent);
+    transition: height 0.8s cubic-bezier(0.16,1,0.3,1);
+    left: 50%; transform: translateX(-50%);
+    bottom: -40px;
+  }
+  .energy-source:hover .energy-line { height: 40px; }
+
+  /* ─── PROCESO ILLUMINATE ─── */
+  .proceso-robot:hover ~ .proceso-cards .paso-card {
+    border-color: rgba(101,210,213,0.35) !important;
+    box-shadow: 0 0 25px rgba(101,210,213,0.1) !important;
+  }
+  .paso-card {
+    transition: all 0.5s cubic-bezier(0.16,1,0.3,1) !important;
+  }
+
+  /* ─── ROBOT CIRCLE (floating for pricing) ─── */
+  .robot-float {
+    animation: robotFloat 3s ease-in-out infinite;
+  }
+  @keyframes robotFloat {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+  }
+
+  /* ─── PARTICLE DOTS ─── */
+  .particle-field { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .particle {
+    position: absolute; border-radius: 50%;
+    background: rgba(101,210,213,0.3);
+    animation: particleDrift 6s ease-in-out infinite;
+  }
+  @keyframes particleDrift {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-20px) scale(1.5); opacity: 0.7; }
+  }
+
+  /* ─── VIDEO READY (when video replaces placeholder) ─── */
+  .video-slot video {
+    width: 100%; height: 100%; object-fit: cover;
+    mix-blend-mode: screen;
+    border-radius: inherit;
+  }
 </style>
 </head>
 <body class="relative">
@@ -192,81 +286,83 @@
   </div>
   <div class="flex items-center gap-3"><a href="/contacto" class="btn-glow text-sm px-5 py-2.5 rounded-xl no-underline">Empezar gratis →</a></div>
 </nav>
-<div class="page-hero"><div class="page-hero-glow"></div>
-<div class="relative z-10 max-w-3xl">
-<p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PROCESO</p>
-<h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]"><span class="hero-line"><span class="hero-line-inner">Implementación</span></span><span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">sin drama.</span></span></span></h1>
-<p class="text-zinc-400 text-xl">Sin semanas de onboarding. Sin IT. Sin interrupciones.</p>
-</div></div>
-<!-- SECCIÓN PROCESO -->
-<section class="w-full px-4 md:px-12 xl:px-24 py-24" id="proceso">
 
-    <!-- ENCABEZADO 2 COLUMNAS -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-12 gap-6">
-        <!-- Lado Izquierdo: Textos -->
-        <div class="max-w-2xl rv-up">
-            <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PROCESO</p>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-                Implementación simple,<br>sin frenar tu negocio.
-            </h2>
-            <p class="text-zinc-400 text-lg">
-                Sin semanas de onboarding. Sin IT. Sin interrupciones.
-            </p>
-        </div>
-        <!-- Lado Derecho: Botón -->
-        <div class="md:pb-2 flex-shrink-0">
-            <a href="#contacto" class="inline-flex items-center justify-center bg-[#65D2D5] hover:bg-[#52b5b8] text-black font-semibold rounded-full px-8 py-3 transition-all duration-300 shadow-[0_0_20px_rgba(101,210,213,0.3)] hover:shadow-[0_0_30px_rgba(101,210,213,0.5)] transform hover:-translate-y-1">
-                Agendar llamada de 15 min
-                <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-        </div>
+<!-- HERO PROCESO -->
+<div class="page-hero" style="padding-bottom:40px;">
+  <div class="page-hero-glow"></div>
+  <div class="relative z-10 max-w-3xl">
+    <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PROCESO</p>
+    <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]">
+      <span class="hero-line"><span class="hero-line-inner">Implementación</span></span>
+      <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">sin drama.</span></span></span>
+    </h1>
+    <p class="text-zinc-400 text-xl">Sin semanas de onboarding. Sin IT. Sin interrupciones.</p>
+  </div>
+</div>
+
+<!-- PROCESO: ROBOT + 3 STEPS -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-12" id="proceso">
+
+  <!-- Robot placeholder centered -->
+  <div class="proceso-robot rv-up mb-4">
+    <div class="video-placeholder video-slot w-full max-w-[650px] h-[280px] mx-auto rounded-[2rem] relative cursor-pointer" id="procesoRobot">
+      <div class="particle-field">
+        <div class="particle" style="width:5px;height:5px;top:25%;left:20%;animation-delay:0s;"></div>
+        <div class="particle" style="width:4px;height:4px;top:50%;left:80%;animation-delay:1.5s;"></div>
+        <div class="particle" style="width:6px;height:6px;top:70%;left:45%;animation-delay:3s;"></div>
+      </div>
+      <div class="flex flex-col items-center vp-label">
+        <div class="vp-icon"><svg viewBox="0 0 24 24"><path d="M12 16v4m-4-4h8m-8 0a4 4 0 01-4-4V6a4 4 0 014-4h8a4 4 0 014 4v6a4 4 0 01-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Video Robot Señalando Abajo
+      </div>
+      <!-- Animated arrow pointing down -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2" style="animation: scrollPulse 2s ease-in-out infinite;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(101,210,213,0.4)" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </div>
+    </div>
+    <p class="text-center text-zinc-600 text-xs mt-3 tracking-widest uppercase">Hover para iluminar los pasos</p>
+  </div>
+
+  <!-- 3 Cards -->
+  <div class="proceso-cards grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
+
+    <!-- Paso 01 -->
+    <div class="paso-card col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-[#65D2D5]/50 overflow-hidden">
+      <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">01</span>
+      <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
+        <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <h3 class="text-white text-xl font-bold mt-4 mb-3">Te conectamos</h3>
+      <p class="text-zinc-400 text-sm leading-relaxed">En una llamada corta entendemos tu negocio, tus herramientas actuales y qué querés resolver primero. Sin formularios eternos.</p>
+      <div class="mt-8 h-px w-12 bg-[#65D2D5]/40 group-hover:w-full transition-all duration-500"></div>
     </div>
 
-    <!-- GRID 3 COLUMNAS -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
-
-        <!-- Paso 01 -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300 overflow-hidden">
-            <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">01</span>
-            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
-                <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            </div>
-            <h3 class="text-white text-xl font-bold mt-4 mb-3">Te conectamos</h3>
-            <p class="text-zinc-400 text-sm leading-relaxed">En una llamada corta (o visita presencial si es necesario), entendemos tu negocio, tus herramientas actuales y qué querés resolver primero. Sin formularios eternos.</p>
-            <div class="mt-8 h-px w-12 bg-[#65D2D5]/40 group-hover:w-full transition-all duration-500"></div>
-        </div>
-
-        <!-- Paso 02 -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300 overflow-hidden">
-            <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">02</span>
-            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
-                <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-            </div>
-            <h3 class="text-white text-xl font-bold mt-4 mb-3">Todo empieza a fluir</h3>
-            <p class="text-zinc-400 text-sm leading-relaxed">Configuramos los módulos, conectamos tus datos existentes y dejamos todo funcionando. Vos seguís operando normal durante la transición.</p>
-            <div class="mt-8 h-px w-12 bg-[#65D2D5]/40 group-hover:w-full transition-all duration-500"></div>
-        </div>
-
-        <!-- Paso 03 -->
-        <div class="col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-1 hover:border-[#65D2D5]/50 transition-all duration-300 overflow-hidden">
-            <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">03</span>
-            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
-                <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-            </div>
-            <h3 class="text-white text-xl font-bold mt-4 mb-3">Vos tenés el control</h3>
-            <p class="text-zinc-400 text-sm leading-relaxed">Con el sistema andando, las tareas repetitivas desaparecen. Vos cargás tus ventas y presupuestos en el dashboard, y tomás mejores decisiones con datos reales al instante.</p>
-            <div class="mt-8 h-px w-12 bg-[#65D2D5]/40 group-hover:w-full transition-all duration-500"></div>
-        </div>
-
+    <!-- Paso 02 -->
+    <div class="paso-card col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-[#65D2D5]/50 overflow-hidden">
+      <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">02</span>
+      <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
+        <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <h3 class="text-white text-xl font-bold mt-4 mb-3">Todo empieza a fluir</h3>
+      <p class="text-zinc-400 text-sm leading-relaxed">Configuramos los módulos, conectamos tus datos existentes y dejamos todo funcionando. Vos seguís operando normal.</p>
+      <div class="mt-8 h-px w-12 bg-[#65D2D5]/40 group-hover:w-full transition-all duration-500"></div>
     </div>
+
+    <!-- Paso 03 -->
+    <div class="paso-card col-span-1 w-full relative group rounded-2xl bg-[#0F0F11] border border-white/10 p-8 flex flex-col hover:-translate-y-2 hover:border-[#65D2D5]/50 overflow-hidden">
+      <span class="absolute top-4 right-4 text-[#65D2D5]/10 font-black text-8xl leading-none select-none pointer-events-none">03</span>
+      <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-6 border border-[#65D2D5]/20">
+        <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h3 class="text-white text-xl font-bold mt-4 mb-3">Vos tenés el control</h3>
+      <p class="text-zinc-400 text-sm leading-relaxed">Las tareas repetitivas desaparecen. Tomás mejores decisiones con datos reales al instante.</p>
+      <div class="mt-8 h-px w-12 bg-[#65D2D5]/40 group-hover:w-full transition-all duration-500"></div>
+    </div>
+
+  </div>
 </section>
-<!-- FIN SECCIÓN PROCESO -->
+
+<!-- FAQ + TESTIMONIOS -->
 <div id="faq" class="rv-up grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-screen-xl mx-auto px-4 py-20 w-full">
 
     <!-- COLUMNA IZQUIERDA: FAQ -->
@@ -376,4 +472,19 @@
 })();
 </script>
 </body>
+</html
+
+<!-- CTA -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-24">
+  <div class="rv-scale max-w-screen-xl mx-auto rounded-[2rem] p-12 md:p-16 relative overflow-hidden border border-white/10 text-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/5 to-transparent pointer-events-none"></div>
+    <div class="relative z-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">¿Listo para empezar?</h2>
+      <p class="text-zinc-400 text-lg mb-8">En una llamada de 15 minutos te mostramos todo.</p>
+      <a href="/contacto" class="btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline">Agendar llamada →</a>
+    </div>
+  </div>
+</section>
+
+>
 </html>
