@@ -294,6 +294,18 @@
     z-index: 5;
     pointer-events: none;
   }
+
+  /* ─── HIDE WATERMARK (bottom-right corner) ─── */
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 200px; height: 60px;
+    background: linear-gradient(to bottom right, transparent 0%, #1A1A1D 70%);
+    z-index: 6;
+    pointer-events: none;
+    border-radius: 0 0 1rem 0;
+  }
 </style>
 </head>
 
