@@ -303,22 +303,12 @@
 <!-- PROCESO: ROBOT + 3 STEPS -->
 <section class="w-full px-4 md:px-12 xl:px-24 py-12" id="proceso">
 
-  <!-- Robot placeholder centered -->
+  <!-- Robot video -->
   <div class="proceso-robot rv-up -mb-6">
     <div class="video-placeholder video-slot w-full max-w-[800px] h-[400px] md:h-[450px] mx-auto rounded-[2rem] relative cursor-pointer" id="procesoRobot">
-      <div class="particle-field">
-        <div class="particle" style="width:5px;height:5px;top:25%;left:20%;animation-delay:0s;"></div>
-        <div class="particle" style="width:4px;height:4px;top:50%;left:80%;animation-delay:1.5s;"></div>
-        <div class="particle" style="width:6px;height:6px;top:70%;left:45%;animation-delay:3s;"></div>
-      </div>
-      <div class="flex flex-col items-center vp-label">
-        <div class="vp-icon"><svg viewBox="0 0 24 24"><path d="M12 16v4m-4-4h8m-8 0a4 4 0 01-4-4V6a4 4 0 014-4h8a4 4 0 014 4v6a4 4 0 01-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Video Robot Señalando Abajo
-      </div>
-      <!-- Animated arrow pointing down -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2" style="animation: scrollPulse 2s ease-in-out infinite;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(101,210,213,0.4)" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </div>
+      <video autoplay muted loop playsinline style="mix-blend-mode:screen; width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+        <source src="./RobotProcesos.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
