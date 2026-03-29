@@ -179,7 +179,9 @@
   @media (max-width: 768px) { .page-hero { padding: 120px 20px 60px; } }
 </style>
 </head>
+
 <body class="relative">
+
 <div class="preloader" id="preloader"><div class="preloader-logo"><img src="./logo.png" alt="Eficia">Eficia</div><div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div></div>
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between transition-all duration-300" style="background:rgba(8,10,15,0.5);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);">
   <a href="/" class="flex items-center gap-2.5 text-white font-black tracking-tighter no-underline" style="font-size:22px;letter-spacing:-0.8px;"><img src="./logo.png" alt="Eficia" style="height:28px;">Eficia</a>
@@ -192,33 +194,44 @@
   </div>
   <div class="flex items-center gap-3"><a href="/contacto" class="btn-glow text-sm px-5 py-2.5 rounded-xl no-underline">Empezar gratis →</a></div>
 </nav>
-<div class="page-hero"><div class="page-hero-glow"></div>
-<div class="relative z-10 max-w-3xl">
-<p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PRECIOS</p>
-<h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]"><span class="hero-line"><span class="hero-line-inner">Planes simples,</span></span><span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">sin sorpresas.</span></span></span></h1>
-<p class="text-zinc-400 text-xl">Descuento exclusivo por tiempo limitado. Sin contratos anuales.</p>
-</div></div>
-<!-- SECCIÓN PRICING -->
-<section class="w-full px-4 md:px-12 xl:px-24 py-24" id="precios">
 
-    <!-- ENCABEZADO -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-16 gap-6">
-        <div class="max-w-2xl rv-up">
-            <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PRECIOS</p>
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                Planes simples,<br>sin sorpresas.
-            </h2>
-            <p class="text-zinc-400 text-lg">Descuento exclusivo por tiempo limitado. Sin contratos anuales.</p>
-        </div>
-        <div class="md:pb-2 flex-shrink-0">
-            <span class="inline-flex items-center gap-2 bg-[#65D2D5] text-black text-sm font-black rounded-full px-5 py-2.5 shadow-[0_0_20px_rgba(101,210,213,0.4)]">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                Ahorrá hasta un 25% hoy
-            </span>
-        </div>
+<!-- HERO PRECIOS — Video full width -->
+<section class="relative overflow-hidden" style="min-height:100vh;">
+  <!-- Video background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="./RobotPrecios.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Viñeteo -->
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right, rgba(8,10,15,0.75) 0%, rgba(8,10,15,0.35) 25%, transparent 50%);pointer-events:none;"></div>
+  <div class="hero-glow"></div>
+
+  <!-- Texto -->
+  <div class="relative z-10 flex flex-col justify-between" style="min-height:100vh; padding: 120px 64px 60px;">
+    <div class="max-w-2xl">
+      <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PRECIOS</p>
+      <h1 class="font-black tracking-tighter leading-none text-white mb-6" style="font-size:clamp(48px,7vw,84px);">
+        <span class="hero-line"><span class="hero-line-inner">Planes simples,</span></span>
+        <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">sin sorpresas.</span></span></span>
+      </h1>
+      <p class="text-white/70 font-light leading-relaxed mb-8" id="heroSub" style="opacity:0;transform:translateY(25px);font-size:clamp(18px,2.2vw,24px);max-width:480px;">
+        Descuento exclusivo por tiempo limitado. Sin contratos anuales.
+      </p>
+      <div id="heroCtas" style="opacity:0;transform:translateY(25px);">
+        <span class="inline-flex items-center gap-2 bg-[#65D2D5] text-black text-sm font-black rounded-full px-5 py-2.5 shadow-[0_0_20px_rgba(101,210,213,0.4)]">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Ahorrá hasta un 25% hoy
+        </span>
+      </div>
     </div>
+    <div></div>
+  </div>
+</section>
 
-    <!-- GRID 3 PLANES -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-12" id="precios">
+<!-- GRID 3 PLANES -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full items-stretch mb-16">
 
         <!-- Plan Eficia -->
@@ -503,6 +516,9 @@
 
 </section>
 <!-- FIN SECCIÓN PRICING -->
+</section>
+
+
 <footer class="border-t px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center" style="border-color:rgba(255,255,255,0.06);">
   <a href="/" class="flex items-center gap-2.5 no-underline"><img src="./logo.png" alt="Eficia" style="height:24px;"><span class="text-white font-bold text-lg tracking-tight">Eficia</span></a>
   <div class="flex gap-8"><a href="/servicios" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Servicios</a><a href="/proceso" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Proceso</a><a href="/precios" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Precios</a><a href="/contacto" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Contacto</a></div>
