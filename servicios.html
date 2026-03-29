@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Eficia</title>
+<meta name="description" content="Eficia — Sistema de gestión con IA para tu negocio.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{inter:['Inter','sans-serif']},colors:{accent:'#65D2D5',accentDark:'#3ABFC2'},boxShadow:{glow:'0 0 32px 0 rgba(101,210,213,0.35)'}}}}</script>
+<style>
+  * { font-family: 'Inter', sans-serif; }
+
+  body {
+    background: #080A0F;
+    color: #F0F2F5;
+    overflow-x: hidden;
+  }
+
+  /* Grain texture */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+
+  /* Radial hero glow */
+  .hero-glow {
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(101,210,213,0.12) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Video bg */
+  .video-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+  .video-bg video {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.88;
+    filter: saturate(0.9) brightness(0.78) contrast(1.05);
+  }
+  .video-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(8,10,15,0.55) 0%, rgba(8,10,15,0.1) 30%, rgba(8,10,15,0.1) 65%, #080A0F 100%),
+      linear-gradient(to right, rgba(8,10,15,0.6) 0%, transparent 30%, transparent 70%, rgba(8,10,15,0.6) 100%);
+  }
+
+  /* Glow button */
+  .btn-glow {
+    background: #65D2D5;
+    color: #080A0F;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 32px rgba(101,210,213,0.45), 0 0 8px rgba(101,210,213,0.3);
+  }
+  .btn-glow:hover {
+    background: #7ADFE2;
+    transform: scale(1.05);
+    box-shadow: 0 0 56px rgba(101,210,213,0.6), 0 0 16px rgba(101,210,213,0.4);
+  }
+
+  /* Bento cards */
+  .bento {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    transition: all 0.35s ease;
+    position: relative; overflow: hidden;
+  }
+  .bento::before {
+    content: '';
+    position: absolute; inset: 0; border-radius: 20px;
+    background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(101,210,213,0.06), transparent 40%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .bento:hover {
+    border-color: rgba(101,210,213,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+  .bento:hover::before { opacity: 1; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #080A0F; }
+  ::-webkit-scrollbar-thumb { background: rgba(101,210,213,0.3); border-radius: 2px; }
+
+  /* Badge */
+  .badge-live::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #65D2D5;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px #65D2D5;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.6; transform:scale(1.4); }
+  }
+
+  /* Shimmer text */
+  .text-shimmer {
+    background: linear-gradient(135deg, #65D2D5 0%, #A8ECEE 40%, #65D2D5 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+  @keyframes shimmer {
+    from { background-position: 0% center; }
+    to   { background-position: 200% center; }
+  }
+
+  /* Pricing featured */
+  .price-featured {
+    background: linear-gradient(160deg, rgba(101,210,213,0.08) 0%, rgba(255,255,255,0.02) 60%);
+    border-color: rgba(101,210,213,0.25) !important;
+    box-shadow: 0 0 60px rgba(101,210,213,0.08);
+  }
+
+
+  /* ─── LENIS ─── */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+  /* ─── PRELOADER ─── */
+  .preloader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #080A0F;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), visibility 0.7s;
+  }
+  .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+  .preloader-logo {
+    display: flex; align-items: center; gap: 16px;
+    font-weight: 900; font-size: 42px; color: #F0F2F5;
+    letter-spacing: -0.04em;
+  }
+  .preloader-logo img {
+    height: 56px; width: auto;
+  }
+  .preloader-bar {
+    width: 180px; height: 2px; background: rgba(255,255,255,0.08);
+    border-radius: 2px; overflow: hidden;
+  }
+  .preloader-fill {
+    height: 100%; width: 0%; background: #65D2D5;
+    border-radius: 2px; transition: width 0.2s;
+  }
+
+  /* ─── REVEAL (GSAP initial states) ─── */
+  .rv-up { opacity: 0; transform: translateY(50px); }
+  .rv-scale { opacity: 0; transform: scale(0.92); }
+
+  /* ─── HERO LINE REVEAL ─── */
+  .hero-line { overflow: hidden; display: block; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+  .hero-line-inner { display: block; transform: translateY(105%); }
+
+  .nav-link-active { color: #65D2D5 !important; }
+  .page-hero { padding: 160px 48px 80px; position: relative; }
+  .page-hero-glow { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(101,210,213,0.08) 0%, transparent 65%); pointer-events: none; }
+  .form-input { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #F0F2F5; font-size: 14px; outline: none; transition: border-color 0.3s; }
+  .form-input:focus { border-color: rgba(101,210,213,0.5); }
+  .form-input::placeholder { color: rgba(255,255,255,0.25); }
+  textarea.form-input { resize: vertical; min-height: 120px; }
+  @media (max-width: 768px) { .page-hero { padding: 120px 20px 60px; } }
+</style>
+</head>
+<body class="relative">
+<div class="preloader" id="preloader"><div class="preloader-logo"><img src="./logo.png" alt="Eficia">Eficia</div><div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div></div>
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between transition-all duration-300" style="background:rgba(8,10,15,0.5);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);">
+  <a href="/" class="flex items-center gap-2.5 text-white font-black tracking-tighter no-underline" style="font-size:22px;letter-spacing:-0.8px;"><img src="./logo.png" alt="Eficia" style="height:28px;">Eficia</a>
+  <div class="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+    <a href="/" class="text-sm text-white/50 hover:text-white transition-colors no-underline">Inicio</a>
+    <a href="/servicios" class="text-sm text-white/50 hover:text-white transition-colors no-underline nav-link-active">Servicios</a>
+    <a href="/proceso" class="text-sm text-white/50 hover:text-white transition-colors no-underline">Proceso</a>
+    <a href="/precios" class="text-sm text-white/50 hover:text-white transition-colors no-underline">Precios</a>
+    <a href="/contacto" class="text-sm text-white/50 hover:text-white transition-colors no-underline">Contacto</a>
+  </div>
+  <div class="flex items-center gap-3"><a href="/contacto" class="btn-glow text-sm px-5 py-2.5 rounded-xl no-underline">Empezar gratis →</a></div>
+</nav>
+<div class="page-hero"><div class="page-hero-glow"></div>
+<div class="relative z-10 max-w-3xl">
+<p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— SERVICIOS</p>
+<h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]"><span class="hero-line"><span class="hero-line-inner">Tus procesos,</span></span><span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">resueltos.</span></span></span></h1>
+<p class="text-zinc-400 text-xl">Todo lo que necesitás para gestionar tu negocio, nada de lo que no.</p>
+</div></div>
+<!-- SECCIÓN BENTO GRID OPTIMIZADA -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-24" id="servicios">
+    
+    <div class="mb-8 rv-up">
+        <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— SERVICIOS</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Tus procesos,<br>resueltos.
+        </h2>
+        <p class="text-zinc-400 text-lg">Todo lo que necesitás, nada de lo que no.</p>
+    </div>
+
+    <!-- Contenedor principal Grid — TODO dentro del mismo grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
+
+        <!-- 1. Asistente IA (2 columnas) -->
+        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
+                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
+                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Asistente IA incluido</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
+            </div>
+            <div class="absolute inset-y-0 right-0 w-2/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./Foto IA.png" alt="Asistente IA" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
+            </div>
+        </div>
+
+        <!-- 2. Bot de WhatsApp (1 col, 3 filas) -->
+        <div class="lg:col-span-1 lg:row-span-3 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[560px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full">
+                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
+                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Bot de WhatsApp</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
+            </div>
+            <div class="absolute inset-0 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-[#1A1A1D] to-transparent z-10"></div>
+                <img src="./Foto Bot Wpp.png" alt="Bot de WhatsApp" class="absolute inset-0 w-full h-full object-cover object-bottom mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500" style="object-position: center 65%;">
+            </div>
+        </div>
+
+        <!-- 3. Stock en tiempo real (1 col) -->
+        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
+                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
+                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Stock en tiempo real</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
+            </div>
+            <div class="absolute inset-y-0 right-0 w-2/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./foto control stock.png" alt="Stock" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
+            </div>
+        </div>
+
+        <!-- 4. Ventas y márgenes (1 col) -->
+        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-2/3">
+                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
+                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Ventas y márgenes</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Cuotas, descuentos y análisis de rentabilidad por producto.</p>
+            </div>
+            <div class="absolute inset-y-0 right-0 w-2/3 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-[#1A1A1D]/70 to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./Foto Dashborad.png" alt="Ventas" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
+            </div>
+        </div>
+
+        <!-- 5. Generador de contenido con IA (2 columnas — mismo ancho que Asistente IA) -->
+        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
+            <div class="relative z-10 w-full md:w-1/2">
+                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
+                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Generador de contenido con IA</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Generá publicaciones, promociones e imágenes para redes sociales en segundos. Solo contás qué querés publicar.</p>
+            </div>
+            <div class="absolute inset-y-0 right-0 w-1/2 z-[-1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
+                <img src="./foto creador de contenido.png" alt="Creador de Contenido" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- FIN SECCIÓN BENTO GRID -->
+<section class="w-full px-4 md:px-12 xl:px-24 pb-24"><div class="rv-scale max-w-screen-xl mx-auto rounded-[2rem] p-12 md:p-16 relative overflow-hidden border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10"><h2 class="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">¿Querés ver cómo funciona?</h2><p class="text-zinc-400 text-lg">Te mostramos en vivo cómo Eficia gestiona tu negocio.</p></div>
+<a href="/contacto" class="relative z-10 btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline whitespace-nowrap">Agendar demo →</a>
+</div></section>
+<footer class="border-t px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center" style="border-color:rgba(255,255,255,0.06);">
+  <a href="/" class="flex items-center gap-2.5 no-underline"><img src="./logo.png" alt="Eficia" style="height:24px;"><span class="text-white font-bold text-lg tracking-tight">Eficia</span></a>
+  <div class="flex gap-8"><a href="/servicios" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Servicios</a><a href="/proceso" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Proceso</a><a href="/precios" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Precios</a><a href="/contacto" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Contacto</a></div>
+  <span class="text-sm text-white/20">© 2026 Eficia · Hecho en Argentina 🇦🇷</span>
+</footer>
+<script>
+(function(){
+  var fill=document.getElementById('preloaderFill'),pre=document.getElementById('preloader'),p=0;
+  var iv=setInterval(function(){p+=Math.random()*30+15;if(p>100)p=100;fill.style.width=p+'%';if(p>=100){clearInterval(iv);setTimeout(function(){pre.classList.add('done');go();},350);}},100);
+  var lenis=new Lenis({duration:1.2,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true});
+  function raf(t){lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
+  lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);
+  lucide.createIcons();
+  var nv=document.getElementById('navbar');
+  window.addEventListener('scroll',function(){if(window.scrollY>60){nv.style.background='rgba(8,10,15,0.88)';nv.style.backdropFilter='blur(24px)';nv.style.borderBottom='1px solid rgba(255,255,255,0.06)';nv.style.paddingTop='14px';nv.style.paddingBottom='14px';}else{nv.style.background='rgba(8,10,15,0.5)';nv.style.backdropFilter='blur(20px)';nv.style.borderBottom='1px solid rgba(255,255,255,0.05)';nv.style.paddingTop='20px';nv.style.paddingBottom='20px';}});
+  document.querySelectorAll('.bento').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');});});
+  function go(){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.hero-line-inner',{y:0,duration:1.3,ease:'power4.out',stagger:0.18,delay:0.15});
+    ['#heroSub','#heroCtas','#heroStats'].forEach(function(s,i){var e=document.querySelector(s);if(e)gsap.to(e,{opacity:1,y:0,duration:0.9,ease:'power3.out',delay:0.65+i*0.2});});
+    var hs=document.getElementById('heroScroll');if(hs)gsap.to(hs,{opacity:1,duration:1,delay:1.6});
+    var vb=document.querySelector('.video-bg');if(vb)gsap.to(vb,{y:120,ease:'none',scrollTrigger:{trigger:vb,start:'top top',end:'bottom top',scrub:1.5}});
+    document.querySelectorAll('.rv-up').forEach(function(el){gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+    document.querySelectorAll('.rv-scale').forEach(function(el){gsap.to(el,{opacity:1,scale:1,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+    function sc(cs,ck,sv){var c=document.querySelectorAll(cs+' '+ck);if(!c.length)return;c.forEach(function(x){gsap.set(x,{opacity:0,y:50});});ScrollTrigger.create({trigger:cs,start:'top 80%',once:true,onEnter:function(){gsap.to(c,{opacity:1,y:0,duration:0.85,ease:'power3.out',stagger:sv});}});}
+    sc('#servicios','[class*="rounded-2xl"][class*="bg-[#1A1A1D]"]',0.12);
+    sc('#proceso','[class*="rounded-2xl"][class*="bg-[#0F0F11]"]',0.15);
+    sc('#precios','.grid > [class*="rounded-2xl"]',0.1);
+    document.querySelectorAll('.split-chars').forEach(function(t){var r=t.innerHTML,o='';r.split(/<br\s*\/?>/i).forEach(function(p,i){if(i>0)o+='<br>';p.replace(/<[^>]+>/g,'').trim().split(/\s+/).forEach(function(w,j){if(j>0)o+=' ';for(var k=0;k<w.length;k++)o+='<span style="display:inline-block;opacity:0;transform:translateY(30px);" class="st-c">'+w[k]+'</span>';});});t.innerHTML=o;gsap.to(t.querySelectorAll('.st-c'),{y:0,opacity:1,duration:0.45,ease:'power3.out',stagger:0.018,scrollTrigger:{trigger:t,start:'top 88%',once:true}});});
+    var ph=document.querySelector('.page-hero');if(ph)gsap.from(ph.querySelectorAll('h1,p,.btn-glow'),{opacity:0,y:40,duration:0.8,ease:'power3.out',stagger:0.12,delay:0.2});
+  }
+})();
+</script>
+</body>
+</html>
