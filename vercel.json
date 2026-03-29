@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/eficia_landing.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/servicios", "destination": "/servicios.html" },
+    { "source": "/proceso", "destination": "/proceso.html" },
+    { "source": "/precios", "destination": "/precios.html" },
+    { "source": "/contacto", "destination": "/contacto.html" }
   ]
 }
