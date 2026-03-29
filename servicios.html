@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Servicios — Eficia</title>
+<title>Cómo funciona — Eficia</title>
 <meta name="description" content="Eficia — Sistema de gestión con IA para tu negocio.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -177,9 +177,105 @@
   .form-input::placeholder { color: rgba(255,255,255,0.25); }
   textarea.form-input { resize: vertical; min-height: 120px; }
   @media (max-width: 768px) { .page-hero { padding: 120px 20px 60px; } }
+
+  /* ─── VIDEO PLACEHOLDER ─── */
+  .video-placeholder {
+    position: relative;
+    background: transparent;
+    border: none;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .video-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(101,210,213,0.08), transparent 60%);
+    animation: vpGlow 4s ease-in-out infinite alternate;
+  }
+  @keyframes vpGlow {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.05); }
+  }
+  .video-placeholder .vp-label {
+    font-size: 13px; color: rgba(255,255,255,0.2);
+    text-transform: uppercase; letter-spacing: 0.15em;
+    z-index: 1; text-align: center; line-height: 1.6;
+  }
+  .video-placeholder .vp-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(101,210,213,0.1); border: 1px solid rgba(101,210,213,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .video-placeholder .vp-icon svg { width: 20px; height: 20px; stroke: rgba(101,210,213,0.4); fill: none; stroke-width: 1.5; }
+
+  /* ─── ENERGY BEAM EFFECT ─── */
+  .energy-source:hover ~ .energy-target .service-card,
+  .energy-source:hover ~ .service-card {
+    border-color: rgba(101,210,213,0.4) !important;
+    box-shadow: 0 0 30px rgba(101,210,213,0.12), inset 0 0 30px rgba(101,210,213,0.03) !important;
+  }
+  .service-card {
+    transition: all 0.6s cubic-bezier(0.16,1,0.3,1) !important;
+  }
+  .service-card:hover {
+    border-color: rgba(101,210,213,0.5) !important;
+    box-shadow: 0 0 40px rgba(101,210,213,0.2), inset 0 0 40px rgba(101,210,213,0.05) !important;
+    transform: translateY(-6px) !important;
+  }
+  
+  /* ─── ENERGY LINE (animated) ─── */
+  .energy-line {
+    position: absolute;
+    width: 2px; height: 0;
+    background: linear-gradient(to bottom, rgba(101,210,213,0.5), transparent);
+    transition: height 0.8s cubic-bezier(0.16,1,0.3,1);
+    left: 50%; transform: translateX(-50%);
+    bottom: -40px;
+  }
+  .energy-source:hover .energy-line { height: 40px; }
+
+  /* ─── PROCESO ILLUMINATE ─── */
+  .proceso-robot:hover ~ .proceso-cards .paso-card {
+    border-color: rgba(101,210,213,0.35) !important;
+    box-shadow: 0 0 25px rgba(101,210,213,0.1) !important;
+  }
+  .paso-card {
+    transition: all 0.5s cubic-bezier(0.16,1,0.3,1) !important;
+  }
+
+  /* ─── ROBOT CIRCLE (floating for pricing) ─── */
+  .robot-float {
+    animation: robotFloat 3s ease-in-out infinite;
+  }
+  @keyframes robotFloat {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+  }
+
+  /* ─── PARTICLE DOTS ─── */
+  .particle-field { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .particle {
+    position: absolute; border-radius: 50%;
+    background: rgba(101,210,213,0.3);
+    animation: particleDrift 6s ease-in-out infinite;
+  }
+  @keyframes particleDrift {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-20px) scale(1.5); opacity: 0.7; }
+  }
+
+  /* ─── VIDEO READY (when video replaces placeholder) ─── */
+  .video-slot video {
+    width: 100%; height: 100%; object-fit: cover;
+    mix-blend-mode: screen;
+    border-radius: inherit;
+  }
 </style>
 </head>
+
 <body class="relative">
+
 <div class="preloader" id="preloader"><div class="preloader-logo"><img src="./logo.png" alt="Eficia">Eficia</div><div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div></div>
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between transition-all duration-300" style="background:rgba(8,10,15,0.5);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);">
   <a href="/" class="flex items-center gap-2.5 text-white font-black tracking-tighter no-underline" style="font-size:22px;letter-spacing:-0.8px;"><img src="./logo.png" alt="Eficia" style="height:28px;">Eficia</a>
@@ -192,125 +288,115 @@
   </div>
   <div class="flex items-center gap-3"><a href="/contacto" class="btn-glow text-sm px-5 py-2.5 rounded-xl no-underline">Empezar gratis →</a></div>
 </nav>
-<div class="page-hero"><div class="page-hero-glow"></div>
-<div class="relative z-10 max-w-3xl">
-<p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— SERVICIOS</p>
-<h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]"><span class="hero-line"><span class="hero-line-inner">Tus procesos,</span></span><span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">resueltos.</span></span></span></h1>
-<p class="text-zinc-400 text-xl">Todo lo que necesitás para gestionar tu negocio, nada de lo que no.</p>
-</div></div>
-<!-- SECCIÓN BENTO GRID OPTIMIZADA -->
-<section class="w-full px-4 md:px-12 xl:px-24 py-24" id="servicios">
-    
-    <div class="mb-8 rv-up">
-        <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— SERVICIOS</p>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-            Tus procesos,<br>resueltos.
-        </h2>
-        <p class="text-zinc-400 text-lg">Todo lo que necesitás, nada de lo que no.</p>
+
+<!-- HERO SERVICIOS -->
+<div class="page-hero" style="padding-bottom:40px;">
+  <div class="page-hero-glow"></div>
+  <div class="relative z-10 max-w-3xl">
+    <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— SERVICIOS</p>
+    <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]">
+      <span class="hero-line"><span class="hero-line-inner">Tus procesos,</span></span>
+      <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">resueltos.</span></span></span>
+    </h1>
+    <p class="text-zinc-400 text-xl">Todo lo que necesitás para gestionar tu negocio, nada de lo que no.</p>
+  </div>
+</div>
+
+<!-- SERVICIOS: ROBOT LEFT + CARDS RIGHT -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-12" id="servicios">
+  <div class="flex flex-col lg:flex-row gap-12 items-start mb-16">
+
+    <!-- LEFT: Robot placeholder (sticky) -->
+    <div class="lg:sticky lg:top-32 flex-shrink-0 energy-source rv-up">
+      <div class="video-placeholder video-slot w-full aspect-square md:w-[420px] md:h-[420px] rounded-[2rem] relative">
+        <div class="particle-field">
+          <div class="particle" style="width:4px;height:4px;top:20%;left:30%;animation-delay:0s;"></div>
+          <div class="particle" style="width:6px;height:6px;top:60%;left:70%;animation-delay:1s;"></div>
+          <div class="particle" style="width:3px;height:3px;top:40%;left:50%;animation-delay:2s;"></div>
+          <div class="particle" style="width:5px;height:5px;top:80%;left:20%;animation-delay:3s;"></div>
+          <div class="particle" style="width:4px;height:4px;top:15%;left:80%;animation-delay:4s;"></div>
+        </div>
+        <div class="flex flex-col items-center vp-label">
+          <div class="vp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(101,210,213,0.4)" stroke-width="1.5"><path d="M12 8V4H8"/><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+          Video Robot<br>Organizando
+        </div>
+        <div class="energy-line"></div>
+      </div>
+      <p class="text-center text-zinc-600 text-xs mt-4 tracking-widest uppercase">Hover para activar</p>
     </div>
 
-    <!-- Contenedor principal Grid — TODO dentro del mismo grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
+    <!-- RIGHT: Service cards -->
+    <div class="flex-1 energy-target">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-        <!-- 1. Asistente IA (2 columnas) -->
-        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
-            <div class="relative z-10 w-full md:w-2/3">
-                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
-                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Asistente IA incluido</h3>
-                <p class="text-zinc-400 text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
-            </div>
-            <div class="absolute inset-y-0 right-0 w-2/3 z-[-1]">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <img src="./Foto IA.png" alt="Asistente IA" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
-            </div>
+        <div class="service-card relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[200px] group cursor-pointer">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20"><i data-lucide="bot" style="color:#65D2D5;width:20px;height:20px;"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Asistente IA incluido</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
+          </div>
+          <img src="./Foto IA.png" alt="" class="absolute bottom-0 right-0 w-1/2 h-full object-cover object-right opacity-20 group-hover:opacity-40 transition-opacity duration-500 mix-blend-luminosity">
         </div>
 
-        <!-- 2. Bot de WhatsApp (1 col, 3 filas) -->
-        <div class="lg:col-span-1 lg:row-span-3 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[560px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
-            <div class="relative z-10 w-full">
-                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
-                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Bot de WhatsApp</h3>
-                <p class="text-zinc-400 text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
-            </div>
-            <div class="absolute inset-0 z-[-1]">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <div class="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-[#1A1A1D] to-transparent z-10"></div>
-                <img src="./Foto Bot Wpp.png" alt="Bot de WhatsApp" class="absolute inset-0 w-full h-full object-cover object-bottom mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500" style="object-position: center 65%;">
-            </div>
+        <div class="service-card relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[200px] group cursor-pointer">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20"><i data-lucide="message-circle" style="color:#65D2D5;width:20px;height:20px;"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Bot de WhatsApp</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
+          </div>
+          <img src="./Foto Bot Wpp.png" alt="" class="absolute bottom-0 right-0 w-1/2 h-full object-cover object-bottom opacity-20 group-hover:opacity-40 transition-opacity duration-500 mix-blend-luminosity">
         </div>
 
-        <!-- 3. Stock en tiempo real (1 col) -->
-        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
-            <div class="relative z-10 w-full md:w-2/3">
-                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
-                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Stock en tiempo real</h3>
-                <p class="text-zinc-400 text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
-            </div>
-            <div class="absolute inset-y-0 right-0 w-2/3 z-[-1]">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <img src="./foto control stock.png" alt="Stock" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
-            </div>
+        <div class="service-card relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[200px] group cursor-pointer">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20"><i data-lucide="package" style="color:#65D2D5;width:20px;height:20px;"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Stock en tiempo real</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
+          </div>
+          <img src="./foto control stock.png" alt="" class="absolute bottom-0 right-0 w-1/2 h-full object-cover object-right opacity-20 group-hover:opacity-40 transition-opacity duration-500 mix-blend-luminosity">
         </div>
 
-        <!-- 4. Ventas y márgenes (1 col) -->
-        <div class="lg:col-span-1 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
-            <div class="relative z-10 w-full md:w-2/3">
-                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
-                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Ventas y márgenes</h3>
-                <p class="text-zinc-400 text-sm leading-relaxed">Cuotas, descuentos y análisis de rentabilidad por producto.</p>
-            </div>
-            <div class="absolute inset-y-0 right-0 w-2/3 z-[-1]">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-[#1A1A1D]/70 to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <img src="./Foto Dashborad.png" alt="Ventas" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
-            </div>
+        <div class="service-card relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[200px] group cursor-pointer">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20"><i data-lucide="bar-chart-3" style="color:#65D2D5;width:20px;height:20px;"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Ventas y márgenes</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Análisis de rentabilidad por producto. Historial completo de operaciones.</p>
+          </div>
+          <img src="./Foto Dashborad.png" alt="" class="absolute bottom-0 right-0 w-1/2 h-full object-cover object-right opacity-20 group-hover:opacity-40 transition-opacity duration-500 mix-blend-luminosity">
         </div>
 
-        <!-- 5. Generador de contenido con IA (2 columnas — mismo ancho que Asistente IA) -->
-        <div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-8 min-h-[250px] group hover:-translate-y-2 hover:border-[#65D2D5]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer z-0">
-            <div class="relative z-10 w-full md:w-1/2">
-                <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20">
-                    <svg class="w-5 h-5 text-[#65D2D5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Generador de contenido con IA</h3>
-                <p class="text-zinc-400 text-sm leading-relaxed">Generá publicaciones, promociones e imágenes para redes sociales en segundos. Solo contás qué querés publicar.</p>
-            </div>
-            <div class="absolute inset-y-0 right-0 w-1/2 z-[-1]">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-transparent z-10"></div>
-                <img src="./foto creador de contenido.png" alt="Creador de Contenido" class="absolute bottom-0 right-0 w-full h-full object-cover object-right mix-blend-luminosity group-hover:opacity-80 transition-opacity duration-500">
-            </div>
+        <div class="service-card md:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[180px] group cursor-pointer">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
+          <div class="relative z-10 max-w-md">
+            <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20"><i data-lucide="sparkles" style="color:#65D2D5;width:20px;height:20px;"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Generador de contenido con IA</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Generá publicaciones, promociones e imágenes para redes sociales en segundos.</p>
+          </div>
+          <img src="./foto creador de contenido.png" alt="" class="absolute bottom-0 right-0 w-1/3 h-full object-cover object-right opacity-20 group-hover:opacity-40 transition-opacity duration-500 mix-blend-luminosity">
         </div>
 
+      </div>
     </div>
-
+  </div>
 </section>
-<!-- FIN SECCIÓN BENTO GRID -->
-<section class="w-full px-4 md:px-12 xl:px-24 pb-24"><div class="rv-scale max-w-screen-xl mx-auto rounded-[2rem] p-12 md:p-16 relative overflow-hidden border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
-<div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/5 to-transparent pointer-events-none"></div>
-<div class="relative z-10"><h2 class="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">¿Querés ver cómo funciona?</h2><p class="text-zinc-400 text-lg">Te mostramos en vivo cómo Eficia gestiona tu negocio.</p></div>
-<a href="/contacto" class="relative z-10 btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline whitespace-nowrap">Agendar demo →</a>
-</div></section>
+
+<!-- CTA -->
+<section class="w-full px-4 md:px-12 xl:px-24 pb-24">
+  <div class="rv-scale max-w-screen-xl mx-auto rounded-[2rem] p-12 md:p-16 relative overflow-hidden border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/5 to-transparent pointer-events-none"></div>
+    <div class="relative z-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">¿Querés ver cómo funciona?</h2>
+      <p class="text-zinc-400 text-lg">Te mostramos en vivo cómo Eficia gestiona tu negocio.</p>
+    </div>
+    <a href="/contacto" class="relative z-10 btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline whitespace-nowrap">Agendar demo →</a>
+  </div>
+</section>
+
+
 <footer class="border-t px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center" style="border-color:rgba(255,255,255,0.06);">
   <a href="/" class="flex items-center gap-2.5 no-underline"><img src="./logo.png" alt="Eficia" style="height:24px;"><span class="text-white font-bold text-lg tracking-tight">Eficia</span></a>
   <div class="flex gap-8"><a href="/servicios" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Servicios</a><a href="/proceso" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Proceso</a><a href="/precios" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Precios</a><a href="/contacto" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Contacto</a></div>
@@ -345,4 +431,18 @@
 })();
 </script>
 </body>
+</html
+
+<!-- CTA -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-24">
+  <div class="rv-scale max-w-screen-xl mx-auto rounded-[2rem] p-12 md:p-16 relative overflow-hidden border border-white/10 text-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/5 to-transparent pointer-events-none"></div>
+    <div class="relative z-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">¿Listo para empezar?</h2>
+      <p class="text-zinc-400 text-lg mb-8">En una llamada de 15 minutos te mostramos todo.</p>
+      <a href="/contacto" class="btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline">Agendar llamada →</a>
+    </div>
+  </div>
+</section>
+
 </html>
