@@ -41,11 +41,12 @@
   /* Video bg */
   .video-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
   .video-bg video {
-    width: 115%; height: 115%; object-fit: cover;
+    width: 140%; height: 140%; object-fit: cover;
     opacity: 0.88;
     filter: saturate(0.9) brightness(0.78) contrast(1.05);
-    object-position: center 35%;
-    margin-left: -7.5%; margin-top: -3%;
+    object-position: center 30%;
+    position: absolute;
+    top: -15%; left: -20%;
   }
   .video-bg::after {
     content: '';
