@@ -320,9 +320,27 @@
   </div>
 </section>
 
-<!-- CARDS DE SERVICIOS -->
+<!-- CARDS DE SERVICIOS — Video izquierda, cards derecha -->
 <section class="w-full px-4 md:px-12 xl:px-24 py-24" id="cards">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-screen-xl mx-auto">
+  <div class="flex flex-col lg:flex-row gap-8 items-start">
+
+    <!-- LEFT: Robot video (sticky, ocupa toda la altura) -->
+    <div class="lg:sticky lg:top-24 flex-shrink-0 rv-up hidden lg:block">
+      <div class="w-[440px] relative overflow-hidden" style="height:calc(200px * 3 + 20px * 2);">
+        <!-- Video con overlays para tapar el fondo gris -->
+        <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; object-position:center 30%;">
+          <source src="./RobotServicios.mp4" type="video/mp4">
+        </video>
+        <!-- Overlays oscuros en los bordes (mismo truco que el hero) -->
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right, rgba(8,10,15,0.6) 0%, transparent 20%, transparent 65%, #080A0F 100%);"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom, #080A0F 0%, transparent 10%, transparent 88%, #080A0F 100%);"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left, transparent 60%, rgba(8,10,15,0.4) 100%);"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Service cards (single column) -->
+    <div class="flex-1">
+      <div class="grid grid-cols-1 gap-5">
 
         <div class="service-card relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[200px] group cursor-pointer">
           <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
@@ -364,7 +382,7 @@
           <img src="./Foto Dashborad.png" alt="" class="absolute bottom-0 right-0 w-2/3 h-full object-cover object-right opacity-70 group-hover:opacity-90 transition-opacity duration-500" style="-webkit-mask-image:linear-gradient(to right, transparent 5%, rgba(0,0,0,0.7) 40%, black 100%); mask-image:linear-gradient(to right, transparent 5%, rgba(0,0,0,0.7) 40%, black 100%);">
         </div>
 
-        <div class="service-card md:col-span-2 relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[180px] group cursor-pointer">
+        <div class="service-card relative overflow-hidden rounded-2xl bg-[#1A1A1D] border border-white/5 p-7 min-h-[200px] group cursor-pointer">
           <div class="absolute inset-0 bg-gradient-to-br from-[#65D2D5]/0 to-[#65D2D5]/0 group-hover:from-[#65D2D5]/5 group-hover:to-transparent transition-all duration-500"></div>
           <div class="relative z-10 max-w-md">
             <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 flex items-center justify-center mb-4 border border-[#65D2D5]/20"><i data-lucide="sparkles" style="color:#65D2D5;width:20px;height:20px;"></i></div>
@@ -375,6 +393,9 @@
         </div>
 
       </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CTA -->
