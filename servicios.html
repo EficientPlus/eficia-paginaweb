@@ -276,6 +276,12 @@
   .service-card img {
     clip-path: inset(0 6% 8% 0);
   }
+
+  /* ─── CARD INITIAL STATE (for GSAP stagger) ─── */
+  #cards .service-card {
+    opacity: 0;
+    transform: translateY(50px);
+  }
 </style>
 </head>
 
@@ -316,7 +322,7 @@
         <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">resueltos.</span></span></span>
       </h1>
       <p class="text-white/70 font-light leading-relaxed mb-10" id="heroSub" style="opacity:0;transform:translateY(25px);font-size:clamp(18px,2.2vw,24px);max-width:480px;">
-        Todo lo que necesitás para gestionar tu negocio, nada de lo que no.
+        Cada módulo resuelve un problema real. Sin funciones que no vas a usar.
       </p>
       <div id="heroCtas" style="opacity:0;transform:translateY(25px);">
         <a href="#cards" class="btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline">Ver servicios ↓</a>
@@ -338,7 +344,7 @@
         <h3 class="text-xl font-bold text-white mb-2">Asistente IA incluido</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Preguntale qué reponer, cómo estuvo la semana, qué productos no rotan. Todo con tus datos reales.</p>
       </div>
-      <img src="./Foto IA.png" alt="" class="absolute bottom-0 right-0 w-2/3 h-full object-cover object-right opacity-70 group-hover:opacity-90 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, black 35%); mask-image:linear-gradient(to right, transparent 0%, black 35%);">
+      <img src="./Foto IA.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
     </div>
 
     <!-- 2. Bot WhatsApp (1 col, 3 filas — VERTICAL) -->
@@ -349,7 +355,7 @@
         <h3 class="text-xl font-bold text-white mb-2">Bot de WhatsApp</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Tus clientes reservan turnos sin llamar. El bot gestiona la agenda automáticamente.</p>
       </div>
-      <img src="./Foto Bot Wpp.png" alt="" class="absolute bottom-0 right-0 w-full h-3/4 object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500 z-0" style="object-position:center 65%; -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 25%); mask-image:linear-gradient(to bottom, transparent 0%, black 25%);">
+      <img src="./Foto Bot Wpp.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="object-position:center 60%; -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, black 40%); mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, black 40%);">
     </div>
 
     <!-- 3. Stock en tiempo real (1 col) -->
@@ -360,7 +366,7 @@
         <h3 class="text-xl font-bold text-white mb-2">Stock en tiempo real</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Alertas, predicciones y órdenes de compra automáticas.</p>
       </div>
-      <img src="./foto control stock.png" alt="" class="absolute bottom-0 right-0 w-2/3 h-full object-cover object-right opacity-70 group-hover:opacity-90 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, black 35%); mask-image:linear-gradient(to right, transparent 0%, black 35%);">
+      <img src="./foto control stock.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
     </div>
 
     <!-- 4. Ventas y márgenes (1 col) -->
@@ -371,7 +377,7 @@
         <h3 class="text-xl font-bold text-white mb-2">Ventas y márgenes</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Análisis de rentabilidad por producto. Historial completo de operaciones.</p>
       </div>
-      <img src="./Foto Dashborad.png" alt="" class="absolute bottom-0 right-0 w-2/3 h-full object-cover object-right opacity-70 group-hover:opacity-90 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, black 35%); mask-image:linear-gradient(to right, transparent 0%, black 35%);">
+      <img src="./Foto Dashborad.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
     </div>
 
     <!-- 5. Generador IA (2 cols) -->
@@ -382,7 +388,7 @@
         <h3 class="text-xl font-bold text-white mb-2">Generador de contenido con IA</h3>
         <p class="text-zinc-400 text-sm leading-relaxed">Generá publicaciones, promociones e imágenes para redes sociales en segundos. Solo contás qué querés publicar.</p>
       </div>
-      <img src="./foto creador de contenido.png" alt="" class="absolute bottom-0 right-0 w-1/2 h-full object-cover object-right opacity-70 group-hover:opacity-90 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, black 35%); mask-image:linear-gradient(to right, transparent 0%, black 35%);">
+      <img src="./foto creador de contenido.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0" style="-webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 25%, black 50%);">
     </div>
 
   </div>
@@ -427,7 +433,7 @@
     document.querySelectorAll('.rv-scale').forEach(function(el){gsap.to(el,{opacity:1,scale:1,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
     function sc(cs,ck,sv){var c=document.querySelectorAll(cs+' '+ck);if(!c.length)return;c.forEach(function(x){gsap.set(x,{opacity:0,y:50});});ScrollTrigger.create({trigger:cs,start:'top 80%',once:true,onEnter:function(){gsap.to(c,{opacity:1,y:0,duration:0.85,ease:'power3.out',stagger:sv});}});}
     sc('#servicios','[class*="rounded-2xl"][class*="bg-[#1A1A1D]"]',0.12);
-    sc('#cards','[class*="rounded-2xl"][class*="bg-[#1A1A1D]"]',0.12);
+    sc('#cards','.service-card',0.15);
     sc('#proceso','[class*="rounded-2xl"][class*="bg-[#0F0F11]"]',0.15);
     sc('#precios','.grid > [class*="rounded-2xl"]',0.1);
     document.querySelectorAll('.split-chars').forEach(function(t){var r=t.innerHTML,o='';r.split(/<br\s*\/?>/i).forEach(function(p,i){if(i>0)o+='<br>';p.replace(/<[^>]+>/g,'').trim().split(/\s+/).forEach(function(w,j){if(j>0)o+=' ';for(var k=0;k<w.length;k++)o+='<span style="display:inline-block;opacity:0;transform:translateY(30px);" class="st-c">'+w[k]+'</span>';});});t.innerHTML=o;gsap.to(t.querySelectorAll('.st-c'),{y:0,opacity:1,duration:0.45,ease:'power3.out',stagger:0.018,scrollTrigger:{trigger:t,start:'top 88%',once:true}});});
