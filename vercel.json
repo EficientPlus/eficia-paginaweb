@@ -4,6 +4,9 @@
     { "source": "/servicios", "destination": "/servicios.html" },
     { "source": "/proceso", "destination": "/proceso.html" },
     { "source": "/precios", "destination": "/precios.html" },
-    { "source": "/contacto", "destination": "/contacto.html" }
+    { "source": "/contacto", "destination": "/contacto.html" },
+    { "source": "/privacidad", "destination": "/privacidad.html" },
+    { "source": "/terminos", "destination": "/terminos.html" },
+    { "source": "/cookies", "destination": "/cookies.html" }
   ]
 }
