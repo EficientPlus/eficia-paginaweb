@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eficia — Automatizamos tu PYME</title>
+<title>Eficia — Automatizamos tu negocio</title>
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -11,9 +11,10 @@
 <!-- Google Fonts: Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- GSAP + ScrollTrigger + Lenis -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
 <!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -153,9 +154,60 @@
     border-color: rgba(101,210,213,0.25) !important;
     box-shadow: 0 0 60px rgba(101,210,213,0.08);
   }
+
+
+  /* ─── LENIS ─── */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+  /* ─── PRELOADER ─── */
+  .preloader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #080A0F;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), visibility 0.7s;
+  }
+  .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+  .preloader-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 900; font-size: 28px; color: #F0F2F5;
+    letter-spacing: -0.04em;
+  }
+  .preloader-mark {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: #65D2D5; color: #080A0F;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900;
+  }
+  .preloader-bar {
+    width: 180px; height: 2px; background: rgba(255,255,255,0.08);
+    border-radius: 2px; overflow: hidden;
+  }
+  .preloader-fill {
+    height: 100%; width: 0%; background: #65D2D5;
+    border-radius: 2px; transition: width 0.2s;
+  }
+
+  /* ─── REVEAL (GSAP initial states) ─── */
+  .rv-up { opacity: 0; transform: translateY(50px); }
+  .rv-scale { opacity: 0; transform: scale(0.92); }
+
+  /* ─── HERO LINE REVEAL ─── */
+  .hero-line { overflow: hidden; display: block; }
+  .hero-line-inner { display: block; transform: translateY(105%); }
 </style>
 </head>
 <body class="relative">
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="preloader-logo">
+    <div class="preloader-mark">⚡</div>
+    Eficia
+  </div>
+  <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+</div>
+
 
 <!-- ════════════════════════════════════════
      NAVBAR
@@ -201,22 +253,19 @@
 
       <!-- Title -->
       <h1 class="font-black tracking-tighter leading-none text-white mb-6 text-left"
-          style="font-size:clamp(52px,7vw,88px);"
-          data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
-        Automatizamos<br>
-        <span class="text-shimmer">tu negocio</span>
+          style="font-size:clamp(52px,7vw,88px);">
+        <span class="hero-line"><span class="hero-line-inner">Automatizamos</span></span>
+        <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">tu negocio</span></span></span>
       </h1>
 
       <!-- Subtitle -->
-      <p class="text-white/70 font-light leading-relaxed mb-10 text-left"
-         style="font-size:clamp(16px,1.8vw,20px); max-width:480px;"
-         data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+      <p class="text-white/70 font-light leading-relaxed mb-10 text-left" id="heroSub" style="opacity:0;transform:translateY(25px);"
+         style="font-size:clamp(16px,1.8vw,20px); max-width:480px;">
         El sistema que trabaja mientras vos atendés.
       </p>
 
       <!-- CTAs -->
-      <div class="flex items-center gap-3 flex-wrap"
-           data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+      <div class="flex items-center gap-3 flex-wrap">
         <a href="#precios" class="btn-glow px-8 py-4 rounded-xl text-base font-bold no-underline">
           Primer mes gratis →
         </a>
@@ -228,8 +277,7 @@
 
     <!-- Stats abajo — pills con glass -->
     <div class="flex items-center gap-3 flex-wrap"
-         data-aos="fade-up" data-aos-duration="700" data-aos-delay="320"
-         style="background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px 24px;width:fit-content;">
+         id="heroStats" style="opacity:0;transform:translateY(25px);background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px 24px;width:fit-content;">
 <div class="flex items-center gap-2">
         <span class="font-black text-xl tracking-tighter text-white">100% Digital</span>
         <span class="text-xs text-white/40 uppercase tracking-widest">Cero papel en tu local</span>
@@ -249,7 +297,7 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 right-12 flex flex-col items-center gap-2 text-white/20 z-10">
+  <div id="heroScroll" class="absolute bottom-8 right-12 flex flex-col items-center gap-2 text-white/20 z-10" style="opacity:0;">
     <div class="w-px h-10" style="background:linear-gradient(to bottom,rgba(101,210,213,0.5),transparent);animation:scrollPulse 2s ease-in-out infinite;"></div>
   </div>
 </section>
@@ -258,7 +306,7 @@
 <!-- SECCIÓN BENTO GRID OPTIMIZADA -->
 <section class="w-full px-4 md:px-12 xl:px-24 py-24" id="servicios">
     
-    <div class="mb-8">
+    <div class="mb-8 rv-up">
         <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— SERVICIOS</p>
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Tus procesos,<br>resueltos.
@@ -371,7 +419,7 @@
     <!-- ENCABEZADO 2 COLUMNAS -->
     <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-12 gap-6">
         <!-- Lado Izquierdo: Textos -->
-        <div class="max-w-2xl">
+        <div class="max-w-2xl rv-up">
             <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PROCESO</p>
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
                 Implementación simple,<br>sin frenar tu negocio.
@@ -443,7 +491,7 @@
 
     <!-- ENCABEZADO -->
     <div class="flex flex-col md:flex-row md:items-end justify-between w-full mb-16 gap-6">
-        <div class="max-w-2xl">
+        <div class="max-w-2xl rv-up">
             <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PRECIOS</p>
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                 Planes simples,<br>sin sorpresas.
@@ -747,7 +795,7 @@
 <!-- ════════════════════════════════════════
      FAQ + TESTIMONIOS
 ════════════════════════════════════════ -->
-<div id="faq" class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-screen-xl mx-auto px-4 py-20 w-full">
+<div id="faq" class="rv-up grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-screen-xl mx-auto px-4 py-20 w-full">
 
     <!-- COLUMNA IZQUIERDA: FAQ -->
     <div class="bg-[#131316] rounded-3xl p-8 md:p-12 border border-white/5 h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
@@ -823,7 +871,7 @@
      CTA FINAL
 ════════════════════════════════════════ -->
 <div class="w-full max-w-screen-xl mx-auto px-4 pb-24" id="contacto">
-    <div class="w-full h-auto min-h-[450px] rounded-[2rem] p-12 md:p-24 relative overflow-hidden border border-white/10 flex flex-col justify-center items-center text-center">
+    <div class="w-full h-auto min-h-[450px] rv-scale rounded-[2rem] p-12 md:p-24 relative overflow-hidden border border-white/10 flex flex-col justify-center items-center text-center">
 
         <!-- Fondo limpio para el video -->
         <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay muted loop playsinline>
@@ -869,7 +917,7 @@
     </div>
     <span class="text-sm text-white/20">© 2026 Eficia · Hecho en Argentina 🇦🇷</span>
     <div class="flex gap-6">
-        <a href="mailto:info@eficientapp.com" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Contacto</a>
+        <a href="/cdn-cgi/l/email-protection#157c7b737a5570737c767c707b617465653b767a78" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Contacto</a>
         <a href="#" class="text-sm text-white/30 hover:text-white transition-colors no-underline">Privacidad</a>
     </div>
 </footer>
@@ -889,63 +937,152 @@
 </div>
 
 <script>
-// Init AOS
-AOS.init({ once: true, easing: 'ease-out-cubic' });
-// Init Lucide icons
-lucide.createIcons();
-// Navbar scroll effect
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) {
-    nav.style.background = 'rgba(8,10,15,0.88)';
-    nav.style.backdropFilter = 'blur(24px)';
-    nav.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
-    nav.style.paddingTop = '14px';
-    nav.style.paddingBottom = '14px';
-  } else {
-    nav.style.background = 'transparent';
-    nav.style.backdropFilter = 'none';
-    nav.style.borderBottom = 'none';
-    nav.style.paddingTop = '20px';
-    nav.style.paddingBottom = '20px';
+(function() {
+  'use strict';
+
+  // ─── PRELOADER ───
+  var fill = document.getElementById('preloaderFill');
+  var pre = document.getElementById('preloader');
+  var p = 0;
+  var iv = setInterval(function() {
+    p += Math.random() * 25 + 10;
+    if (p > 100) p = 100;
+    fill.style.width = p + '%';
+    if (p >= 100) { clearInterval(iv); setTimeout(function() { pre.classList.add('done'); go(); }, 400); }
+  }, 120);
+
+  // ─── LENIS ───
+  var lenis = new Lenis({ duration: 1.2, easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 2 });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+
+  // ─── ANCHORS ───
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var h = this.getAttribute('href'); if (h === '#') return;
+      var t = document.querySelector(h);
+      if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -80 }); }
+    });
+  });
+
+  // ─── LUCIDE ───
+  lucide.createIcons();
+
+  // ─── NAVBAR ───
+  var nav = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(8,10,15,0.88)';
+      nav.style.backdropFilter = 'blur(24px)';
+      nav.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+      nav.style.paddingTop = '14px'; nav.style.paddingBottom = '14px';
+    } else {
+      nav.style.background = 'rgba(8,10,15,0.5)';
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+      nav.style.paddingTop = '20px'; nav.style.paddingBottom = '20px';
+    }
+  });
+
+  // ─── BENTO MOUSE GLOW ───
+  document.querySelectorAll('.bento').forEach(function(c) {
+    c.addEventListener('mousemove', function(e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+  });
+
+  // ─── MODAL DEMO ───
+  window.abrirDemo = function() {
+    document.getElementById('iframe-demo').src = 'https://app.eficientapp.com/dashboard_stock.html?demo=true';
+    document.getElementById('modal-demo').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  window.cerrarDemo = function() {
+    document.getElementById('modal-demo').style.display = 'none';
+    document.getElementById('iframe-demo').src = '';
+    document.body.style.overflow = '';
+  };
+
+  // ─── GSAP ANIMATIONS ───
+  function go() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero lines
+    gsap.to('.hero-line-inner', { y: 0, duration: 1.3, ease: 'power4.out', stagger: 0.18, delay: 0.15 });
+
+    // Hero sub, ctas, stats
+    gsap.to('#heroSub', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: 0.65 });
+    gsap.to('#heroCtas', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: 0.85 });
+    gsap.to('#heroStats', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: 1.05 });
+    gsap.to('#heroScroll', { opacity: 1, duration: 1, delay: 1.6 });
+
+    // Hero video parallax
+    gsap.to('.video-bg', { y: 120, ease: 'none', scrollTrigger: { trigger: '.video-bg', start: 'top top', end: 'bottom top', scrub: 1.5 } });
+
+    // Reveal-up
+    document.querySelectorAll('.rv-up').forEach(function(el) {
+      gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+
+    // Reveal-scale
+    document.querySelectorAll('.rv-scale').forEach(function(el) {
+      gsap.to(el, { opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+
+    // Bento cards stagger
+    var bc = document.querySelectorAll('#servicios [class*="rounded-2xl"][class*="bg-[#1A1A1D]"]');
+    if (bc.length) {
+      bc.forEach(function(c) { gsap.set(c, { opacity: 0, y: 50 }); });
+      ScrollTrigger.create({ trigger: '#servicios', start: 'top 80%', once: true, onEnter: function() {
+        gsap.to(bc, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', stagger: 0.12 });
+      }});
+    }
+
+    // Proceso cards stagger
+    var pc = document.querySelectorAll('#proceso [class*="rounded-2xl"][class*="bg-[#0F0F11]"]');
+    if (pc.length) {
+      pc.forEach(function(c) { gsap.set(c, { opacity: 0, y: 50 }); });
+      ScrollTrigger.create({ trigger: '#proceso', start: 'top 78%', once: true, onEnter: function() {
+        gsap.to(pc, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', stagger: 0.15 });
+      }});
+    }
+
+    // Pricing cards stagger
+    var pk = document.querySelectorAll('#precios .grid > [class*="rounded-2xl"]');
+    if (pk.length) {
+      pk.forEach(function(c) { gsap.set(c, { opacity: 0, y: 40 }); });
+      ScrollTrigger.create({ trigger: '#precios .grid', start: 'top 80%', once: true, onEnter: function() {
+        gsap.to(pk, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', stagger: 0.1 });
+      }});
+    }
+
+    // Section titles — char by char
+    document.querySelectorAll('#servicios h2, #proceso h2, #precios h2, #faq h2').forEach(function(title) {
+      var raw = title.innerHTML;
+      var result = '';
+      var lines = raw.split(/<br\s*\/?>/i);
+      lines.forEach(function(line, li) {
+        if (li > 0) result += '<br>';
+        var clean = line.replace(/<[^>]+>/g, '');
+        var words = clean.trim().split(/\s+/);
+        words.forEach(function(w, wi) {
+          if (wi > 0) result += ' ';
+          for (var i = 0; i < w.length; i++) {
+            result += '<span style="display:inline-block;opacity:0;transform:translateY(30px);" class="st-char">' + w[i] + '</span>';
+          }
+        });
+      });
+      title.innerHTML = result;
+      var chars = title.querySelectorAll('.st-char');
+      gsap.to(chars, { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out', stagger: 0.018, scrollTrigger: { trigger: title, start: 'top 88%', once: true } });
+    });
   }
-});
-// Bento cards mouse glow
-document.querySelectorAll('.bento').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-  });
-});
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-// Modal demo
-function abrirDemo() {
-  document.getElementById('iframe-demo').src = 'https://eficientplus.github.io/veterinaria-babys/dashboard_stock.html?demo=true';
-  document.getElementById('modal-demo').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function cerrarDemo() {
-  document.getElementById('modal-demo').style.display = 'none';
-  document.getElementById('iframe-demo').src = '';
-  document.body.style.overflow = '';
-}
+})();
 </script>
-<style>
-@keyframes scrollPulse {
-  0%,100% { opacity:0.3; transform:scaleY(1); }
-  50% { opacity:0.8; transform:scaleY(0.7); }
-}
-</style>
 </body>
 </html>
-
-
-
-
