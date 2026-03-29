@@ -287,30 +287,37 @@
   <div class="flex items-center gap-3"><a href="/contacto" class="btn-glow text-sm px-5 py-2.5 rounded-xl no-underline">Empezar gratis →</a></div>
 </nav>
 
-<!-- HERO PROCESO -->
-<div class="page-hero" style="padding-bottom:40px;">
-  <div class="page-hero-glow"></div>
-  <div class="relative z-10 max-w-3xl">
-    <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PROCESO</p>
-    <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[0.95]">
-      <span class="hero-line"><span class="hero-line-inner">Implementación</span></span>
-      <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">sin drama.</span></span></span>
-    </h1>
-    <p class="text-zinc-400 text-xl">Sin semanas de onboarding. Sin IT. Sin interrupciones.</p>
+<!-- HERO PROCESO — Video full width como el inicio -->
+<section class="relative overflow-hidden" style="min-height:85vh;">
+
+  <!-- Video background — robot protagonista -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="./RobotProcesos.mp4" type="video/mp4">
+    </video>
   </div>
-</div>
 
-<!-- PROCESO: ROBOT + 3 STEPS -->
-<section class="w-full px-4 md:px-12 xl:px-24 py-12" id="proceso">
+  <!-- Viñeteo -->
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right, rgba(8,10,15,0.75) 0%, rgba(8,10,15,0.35) 25%, transparent 50%);pointer-events:none;"></div>
+  <div class="hero-glow"></div>
 
-  <!-- Robot video -->
-  <div class="proceso-robot rv-up -mb-6">
-    <div class="video-placeholder video-slot w-full max-w-[800px] h-[400px] md:h-[450px] mx-auto rounded-[2rem] relative cursor-pointer" id="procesoRobot">
-      <video autoplay muted loop playsinline style="mix-blend-mode:screen; width:100%; height:100%; object-fit:cover; border-radius:inherit;">
-        <source src="./RobotProcesos.mp4" type="video/mp4">
-      </video>
+  <!-- Texto -->
+  <div class="relative z-10 flex flex-col justify-center" style="min-height:85vh; padding: 160px 64px 80px;">
+    <div class="max-w-2xl">
+      <p class="text-[#65D2D5] tracking-[0.2em] font-bold text-sm mb-4">— PROCESO</p>
+      <h1 class="font-black tracking-tighter leading-none text-white mb-6" style="font-size:clamp(48px,7vw,84px);">
+        <span class="hero-line"><span class="hero-line-inner">Así de simple</span></span>
+        <span class="hero-line"><span class="hero-line-inner"><span class="text-shimmer">es empezar.</span></span></span>
+      </h1>
+      <p class="text-white/70 font-light leading-relaxed" id="heroSub" style="opacity:0;transform:translateY(25px);font-size:clamp(18px,2.2vw,24px);max-width:480px;">
+        Sin semanas de onboarding. Sin IT. Sin interrupciones.
+      </p>
     </div>
   </div>
+</section>
+
+<!-- 3 PASOS -->
+<section class="w-full px-4 md:px-12 xl:px-24 py-24" id="proceso">
 
   <!-- 3 Cards -->
   <div class="proceso-cards grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
