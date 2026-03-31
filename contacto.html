@@ -175,7 +175,6 @@
   .form-input { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #F0F2F5; font-size: 14px; outline: none; transition: border-color 0.3s; }
   .form-input:focus { border-color: rgba(101,210,213,0.5); }
   .form-input::placeholder { color: rgba(255,255,255,0.25); }
-  select.form-input option { background: #0F0F11; color: #F0F2F5; }
   textarea.form-input { resize: vertical; min-height: 120px; }
   @media (max-width: 768px) { .page-hero { padding: 120px 20px 60px; } }
 
@@ -322,10 +321,10 @@
 <div class="rv-up bg-[#0F0F11] rounded-2xl border border-white/5 p-8 md:p-12">
   <h2 class="text-2xl font-bold text-white mb-2">Envianos un mensaje</h2>
   <p class="text-zinc-400 text-sm mb-8">Te respondemos en menos de 24hs.</p>
-  <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-5">
-    <input type="hidden" name="access_key" value="3bbe8ae3-c4b8-46af-a0c0-8dae14e26ef3">
-    <input type="hidden" name="subject" value="Nuevo contacto desde eficientapp.com">
-    <input type="hidden" name="redirect" value="https://eficientapp.com/contacto">
+  <form action="https://formsubmit.co/info@eficientapp.com" method="POST" class="flex flex-col gap-5">
+    <input type="hidden" name="_subject" value="Nuevo contacto desde eficientapp.com">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://eficientapp.com/contacto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <input type="text" name="nombre" placeholder="Tu nombre" required class="form-input">
       <input type="text" name="negocio" placeholder="Nombre del negocio" class="form-input">
@@ -363,7 +362,7 @@
   </div>
   <div class="rv-up bg-[#0F0F11] rounded-2xl border border-white/5 p-6 flex items-center gap-4">
     <div class="w-10 h-10 rounded-lg bg-[#65D2D5]/10 border border-[#65D2D5]/20 flex items-center justify-center flex-shrink-0"><i data-lucide="mail" style="color:#65D2D5;width:18px;height:18px;"></i></div>
-    <div><p class="text-white font-semibold text-sm">Email</p><a href="/cdn-cgi/l/email-protection#e0898e868fa08586898389858e94819090ce838f8d" class="text-zinc-400 text-sm hover:text-[#65D2D5] transition-colors no-underline"><span class="__cf_email__" data-cfemail="71181f171e311417181218141f051001015f121e1c">[email&#160;protected]</span></a></div>
+    <div><p class="text-white font-semibold text-sm">Email</p><a href="mailto:info@eficientapp.com" class="text-zinc-400 text-sm hover:text-[#65D2D5] transition-colors no-underline">info@eficientapp.com</a></div>
   </div>
 </div>
 </div></section>
@@ -407,7 +406,7 @@
       <div class="flex-1 md:text-right">
         <h4 class="text-white font-semibold text-sm mb-4">Contacto</h4>
         <div class="flex flex-col gap-3">
-          <a href="/cdn-cgi/l/email-protection#51383f373e113437383238343f253021217f323e3c" class="text-sm text-zinc-500 hover:text-white transition-colors no-underline"><span class="__cf_email__" data-cfemail="026b6c646d4267646b616b676c766372722c616d6f">[email&#160;protected]</span></a>
+          <a href="mailto:info@eficientapp.com" class="text-sm text-zinc-500 hover:text-white transition-colors no-underline">info@eficientapp.com</a>
           <a href="https://wa.me/5491XXXXXXXXX" class="text-sm text-zinc-500 hover:text-white transition-colors no-underline">WhatsApp</a>
         </div>
       </div>
@@ -422,7 +421,7 @@
 
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
   var fill=document.getElementById('preloaderFill'),pre=document.getElementById('preloader'),p=0;
   var iv=setInterval(function(){p+=Math.random()*30+15;if(p>100)p=100;fill.style.width=p+'%';if(p>=100){clearInterval(iv);setTimeout(function(){pre.classList.add('done');go();},350);}},100);
@@ -445,4 +444,10 @@
     sc('#servicios','[class*="rounded-2xl"][class*="bg-[#1A1A1D]"]',0.12);
     sc('#proceso','[class*="rounded-2xl"][class*="bg-[#0F0F11]"]',0.15);
     sc('#precios','.grid > [class*="rounded-2xl"]',0.1);
-    document.querySelectorAll('.split-chars').forEach(function(t){var r=t.innerHTML,o='';r.split(/<br\s*\/?>/i).forEach(function(p,i){if(i>0)o+='<br>';p.replace(/<[^>]+>/g,'').trim().split(/\s+/).forEach(function(w,j){if(j>0)o+=' ';for(var k=0;k<w.length;k++)o+='<span style="display:inline-block;opacity:0;transform:translateY(30px);" class="st-c">'+w[k]+'</span>';});}
+    document.querySelectorAll('.split-chars').forEach(function(t){var r=t.innerHTML,o='';r.split(/<br\s*\/?>/i).forEach(function(p,i){if(i>0)o+='<br>';p.replace(/<[^>]+>/g,'').trim().split(/\s+/).forEach(function(w,j){if(j>0)o+=' ';for(var k=0;k<w.length;k++)o+='<span style="display:inline-block;opacity:0;transform:translateY(30px);" class="st-c">'+w[k]+'</span>';});});t.innerHTML=o;gsap.to(t.querySelectorAll('.st-c'),{y:0,opacity:1,duration:0.45,ease:'power3.out',stagger:0.018,scrollTrigger:{trigger:t,start:'top 88%',once:true}});});
+    var ph=document.querySelector('.page-hero');if(ph)gsap.from(ph.querySelectorAll('h1,p,.btn-glow'),{opacity:0,y:40,duration:0.8,ease:'power3.out',stagger:0.12,delay:0.2});
+  }
+})();
+</script>
+</body>
+</html>
